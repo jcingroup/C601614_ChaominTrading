@@ -1,0 +1,224 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+    ViewBag.BodyClass = "NewsData";
+    ViewBag.IsFirstPage = false;
+}
+
+@section Breadcrumb {
+    <ul class="breadcrumb">
+        <li><i class="fa-caret-right"></i> 網站資料管理</li>
+        <li><i class="fa-angle-right"></i> 最新消息資料維護</li>
+    </ul>
+}
+
+<h3 class="h3">最新消息資料維護</h3>
+
+<div class="table-header">
+    <div class="table-filter">
+        <div class="form-inline">
+            <label class="sr-only text-sm">日期</label> @* 如要顯示文字: 把 sr-only 拿掉 *@
+            <input type="date" class="form-control form-control-sm input-sm" value="2016-01-01" placeholder="yyyy-mm-dd">
+            <label class="sr-only text-sm">標題</label>
+            <input type="text" class="form-control form-control-sm" placeholder="最新消息標題...">
+            <label class="sr-only text-sm">語系</label>
+            <select class="form-control form-control-sm">
+                <option value="">全部語系</option>
+                <option value="zh-TW">中文</option>
+                <option value="en-US">英文</option>
+            </select>
+            <button class="btn btn-sm btn-primary"><i class="fa-search"></i> 搜尋</button>
+        </div>
+    </div>
+    </div>
+<table class="table table-sm table-bordered table-striped table-hover">
+    <colgroup>
+        <col style="width:8%">
+        <col style="width:8%">
+        <col style="width:15%">
+        <col style="width:39%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+    </colgroup>
+    <thead>
+        <tr>
+            <th class="text-xs-center">刪除</th> @* 文字置中: class="text-xs-center" / 置右: class="text-xs-right" *@
+            <th class="text-xs-center">修改</th>
+            <th>
+                @* 點選排序功能 (點一下遞增, 點兩下遞減) *@
+                <button class="th-sort-toggle">發佈日期</button>
+            </th>
+            <th>
+                @* 如不需要排序功能: 純文字即可 *@
+                消息標題
+            </th>
+            <th class="text-xs-center">語系</th>
+            <th>
+                @* 遞增排序的樣式 class 加 asc *@
+                <button class="text-xs-center th-sort-toggle asc">狀態</button>
+            </th>
+            <th>
+                @* 遞減排序的樣式 class 加 desc *@
+                <button class="text-xs-center th-sort-toggle desc">排序</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @* 建議: 1頁10筆資料 *@
+        <tr>
+            <td class="text-xs-center">
+                <button class="btn btn-link btn-lg text-danger"><i class="fa-times"></i></button>
+            </td>
+            <td class="text-xs-center">
+                <button type="button" class="btn btn-link btn-lg" onclick="location.href='../NewsData/Content'"><i class="fa-pencil"></i></button>
+            </td>
+            <td>2016-01-01</td>
+            <td>朝敏國際貿易官方網站正式營運了！</td>
+            <td class="text-xs-center"><span class="label label-success label-lg m-b-0">中文</span></td>
+            <td class="text-xs-center"><span class="label label-primary label-lg m-b-0">顯示</span></td>
+            <td class="text-xs-center">10</td>
+        </tr>
+        <tr>
+            <td class="text-xs-center">
+                <button class="btn btn-link btn-lg text-danger"><i class="fa-times"></i></button>
+            </td>
+            <td class="text-xs-center">
+                <button type="button" class="btn btn-link btn-lg" onclick="location.href='../NewsData/Content'"><i class="fa-pencil"></i></button>
+            </td>
+            <td>2016-01-01</td>
+            <td>朝敏國際貿易官方網站正式營運了！</td>
+            <td class="text-xs-center"><span class="label label-indigo label-lg m-b-0">英文</span></td>
+            <td class="text-xs-center"><span class="label label-primary label-lg m-b-0">顯示</span></td>
+            <td class="text-xs-center">9</td>
+        </tr>
+        <tr>
+            <td class="text-xs-center">
+                <button class="btn btn-link btn-lg text-danger"><i class="fa-times"></i></button>
+            </td>
+            <td class="text-xs-center">
+                <button type="button" class="btn btn-link btn-lg" onclick="location.href='../NewsData/Content'"><i class="fa-pencil"></i></button>
+            </td>
+            <td>2016-01-01</td>
+            <td>朝敏國際貿易官方網站正式營運了！</td>
+            <td class="text-xs-center"><span class="label label-indigo label-lg m-b-0">英文</span></td>
+            <td class="text-xs-center"><span class="label label-default label-lg m-b-0">隱藏</span></td>
+            <td class="text-xs-center">8</td>
+        </tr>
+        <tr>
+            <td class="text-xs-center">
+                <button class="btn btn-link btn-lg text-danger"><i class="fa-times"></i></button>
+            </td>
+            <td class="text-xs-center">
+                <button type="button" class="btn btn-link btn-lg" onclick="location.href='../NewsData/Content'"><i class="fa-pencil"></i></button>
+            </td>
+            <td>2016-01-01</td>
+            <td>朝敏國際貿易官方網站正式營運了！</td>
+            <td class="text-xs-center"><span class="label label-success label-lg m-b-0">中文</span></td>
+            <td class="text-xs-center"><span class="label label-primary label-lg m-b-0">顯示</span></td>
+            <td class="text-xs-center">7</td>
+        </tr>
+        <tr>
+            <td class="text-xs-center">
+                <button class="btn btn-link btn-lg text-danger"><i class="fa-times"></i></button>
+            </td>
+            <td class="text-xs-center">
+                <button type="button" class="btn btn-link btn-lg" onclick="location.href='../NewsData/Content'"><i class="fa-pencil"></i></button>
+            </td>
+            <td>2016-01-01</td>
+            <td>朝敏國際貿易官方網站正式營運了！</td>
+            <td class="text-xs-center"><span class="label label-indigo label-lg m-b-0">英文</span></td>
+            <td class="text-xs-center"><span class="label label-primary label-lg m-b-0">顯示</span></td>
+            <td class="text-xs-center">6</td>
+        </tr>
+        <tr>
+            <td class="text-xs-center">
+                <button class="btn btn-link btn-lg text-danger"><i class="fa-times"></i></button>
+            </td>
+            <td class="text-xs-center">
+                <button type="button" class="btn btn-link btn-lg" onclick="location.href='../NewsData/Content'"><i class="fa-pencil"></i></button>
+            </td>
+            <td>2016-01-01</td>
+            <td>朝敏國際貿易官方網站正式營運了！</td>
+            <td class="text-xs-center"><span class="label label-success label-lg m-b-0">中文</span></td>
+            <td class="text-xs-center"><span class="label label-default label-lg m-b-0">隱藏</span></td>
+            <td class="text-xs-center">5</td>
+        </tr>
+        <tr>
+            <td class="text-xs-center">
+                <button class="btn btn-link btn-lg text-danger"><i class="fa-times"></i></button>
+            </td>
+            <td class="text-xs-center">
+                <button type="button" class="btn btn-link btn-lg" onclick="location.href='../NewsData/Content'"><i class="fa-pencil"></i></button>
+            </td>
+            <td>2016-01-01</td>
+            <td>朝敏國際貿易官方網站正式營運了！</td>
+            <td class="text-xs-center"><span class="label label-indigo label-lg m-b-0">英文</span></td>
+            <td class="text-xs-center"><span class="label label-primary label-lg m-b-0">顯示</span></td>
+            <td class="text-xs-center">4</td>
+        </tr>
+        <tr>
+            <td class="text-xs-center">
+                <button class="btn btn-link btn-lg text-danger"><i class="fa-times"></i></button>
+            </td>
+            <td class="text-xs-center">
+                <button type="button" class="btn btn-link btn-lg" onclick="location.href='../NewsData/Content'"><i class="fa-pencil"></i></button>
+            </td>
+            <td>2016-01-01</td>
+            <td>朝敏國際貿易官方網站正式營運了！</td>
+            <td class="text-xs-center"><span class="label label-success label-lg m-b-0">中文</span></td>
+            <td class="text-xs-center"><span class="label label-default label-lg m-b-0">隱藏</span></td>
+            <td class="text-xs-center">3</td>
+        </tr>
+        <tr>
+            <td class="text-xs-center">
+                <button class="btn btn-link btn-lg text-danger"><i class="fa-times"></i></button>
+            </td>
+            <td class="text-xs-center">
+                <button type="button" class="btn btn-link btn-lg" onclick="location.href='../NewsData/Content'"><i class="fa-pencil"></i></button>
+            </td>
+            <td>2016-01-01</td>
+            <td>朝敏國際貿易官方網站正式營運了！</td>
+            <td class="text-xs-center"><span class="label label-success label-lg m-b-0">中文</span></td>
+            <td class="text-xs-center"><span class="label label-primary label-lg m-b-0">顯示</span></td>
+            <td class="text-xs-center">2</td>
+        </tr>
+        <tr>
+            <td class="text-xs-center">
+                <button class="btn btn-link btn-lg text-danger"><i class="fa-times"></i></button>
+            </td>
+            <td class="text-xs-center">
+                <button type="button" class="btn btn-link btn-lg" onclick="location.href='../NewsData/Content'"><i class="fa-pencil"></i></button>
+            </td>
+            <td>2016-01-01</td>
+            <td>朝敏國際貿易官方網站正式營運了！</td>
+            <td class="text-xs-center"><span class="label label-indigo label-lg m-b-0">英文</span></td>
+            <td class="text-xs-center"><span class="label label-primary label-lg m-b-0">顯示</span></td>
+            <td class="text-xs-center">1</td>
+        </tr>
+    </tbody>
+</table>
+<div class="table-footer clearfix">
+    <button type="button" class="btn btn-sm btn-success pull-xs-left" onclick="location.href='../NewsData/Content'">
+        <i class="fa-plus-circle"></i> 新增
+    </button>
+    <small class="pull-xs-right">第 1-10 筆，共 20 筆</small>
+    <ul class="pager pager-sm">
+        <li>
+            <a href=""><i class="fa-angle-double-left"></i></a>
+        </li>
+        <li>
+            <a href=""><i class="fa-angle-left"></i></a>
+        </li>
+        <li class="form-inline">
+            <label>第</label>
+            <input type="text" class="form-control form-control-sm text-xs-center" style="width:100px">
+            <label>頁，共 2 頁</label>
+        </li>
+        <li>
+            <a href=""><i class="fa-angle-right"></i></a>
+        </li>
+        <li>
+            <a href=""><i class="fa-angle-double-right"></i></a>
+        </li>
+    </ul>
+</div>
