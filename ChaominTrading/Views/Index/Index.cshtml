@@ -1,31 +1,44 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "首頁";
+    ViewBag.IsFirstPage = true;
+    Layout = null;
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>朝敏菓菜 | 朝敏國際貿易</title>
+    <link rel="stylesheet" href="~/Content/css/index.css">
+</head>
+<body>
+    <div class="video-full">
+        <video preload="auto" autoplay loop>
+            <source src="images/intro.mp4" type="video/mp4">
+        </video>
+    </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+    <main>
+        <figure class="site1">
+            <a href="//www.chaomin.com.tw"></a>
+            <figcaption>
+                <h1 class="logo">朝敏果菜 - 優質．新鮮專業可靠．嚴格控管</h1>
+                <footer>
+                    <h5>每日農藥安全檢驗<small>雙北．桃園．新竹．頭份．台中．彰化．南投</small></h5>
+                    <h2>全程7℃保鮮配送物流</h2>
+                </footer>
+            </figcaption>
+        </figure>
+
+        <figure class="site2">
+            <a href="~/Products"></a>
+            <figcaption>
+                <h1 class="logo">朝敏國際貿易 - 專業．用心．專營蔬菓進出品</h1>
+                <h2>ISO 9001 國際品質驗證</h2>
+            </figcaption>
+        </figure>
+    </main>
+
+    <footer class="copyright">Chaomin &copy; 2013 - @DateTime.Now.Year</footer>
+</body>
+</html>

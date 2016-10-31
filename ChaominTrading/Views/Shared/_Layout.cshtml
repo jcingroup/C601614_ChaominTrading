@@ -1,45 +1,75 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>朝敏國際貿易::@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
+    @RenderSection("css", false)
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("應用程式名稱", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("首頁", "Index", "Home")</li>
-                    <li>@Html.ActionLink("關於", "About", "Home")</li>
-                    <li>@Html.ActionLink("連絡方式", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
-        </footer>
-    </div>
+
+<body class="@ViewBag.BodyClass">
+    <div id="wrapper">
+        <header id="header">
+            <div class="wrap">
+                <h1 class="logo" onclick="location.href='@Url.Content("~/index")'" title="回首頁" tabindex="-1">
+                    @Resources.Res.System_FrontName
+                </h1>
+                <nav id="menu" class="navbar">
+                    <a class="@(ViewBag.BodyClass == "AboutUs" ? "current" : "")" href="~/Home/AboutUs">關於我們</a>
+                    <a class="@(ViewBag.BodyClass == "Products" ? "current" : "")" href="~/Products/Import">進口</a>
+                    <a class="@(ViewBag.BodyClass == "Products" ? "current" : "")" href="~/Products/Export">出口</a>
+                    <a class="@(ViewBag.BodyClass == "News" ? "current" : "")" href="~/News">最新消息</a>
+                    <a class="@(ViewBag.BodyClass == "ContactUs" ? "current" : "")" href="~/Home/ContactUs">聯絡我們</a>
+                </nav>
+                <nav class="top-nav">
+                    <a href="@Url.Action("SetLanguage")?L=en-US&A=index">EN</a>
+                    <a href="@Url.Action("SetLanguage")?L=zh-TW&A=index">中文</a>
+                    <a href="@Url.Action("SetLanguage")?L=ja-JP&A=index">日文</a>
+                </nav>
+            </div><!-- wrap //-->
+        </header>
+
+        <main id="main">
+            @RenderBody()
+        </main>
+
+    </div><!-- wrapper //-->
+
+    <footer id="footer">
+        <div class="wrap row-pad">
+            <section class="col-4">
+                <h1 class="logo-s text-center" onclick="location.href='@Url.Content("~/index")'" title="回首頁" tabindex="-1">朝敏國際貿易</h1>
+                <dl class="foot-contact">
+                    <dt>桃園縣中壢市中正路1451號(後方)</dt>
+                    <dd><em>TEL:</em>03-280-5358</dd>
+                    <dd><em>FAX:</em>03-280-6918</dd>
+                    <dd><em>E-MAIL:</em><a href="mailto:chaomintrading@gmail.com">chaomintrading@gmail.com</a><dd>
+                </dl>
+            </section>
+
+            <section class="col-3 foot-nav">
+                <h4 class="font-sp">NAVIGATION</h4>
+                <nav>
+                    <a href="">關於我們</a>
+                    <a href="">進口</a>
+                    <a href="">出口</a>
+                    <a href="">最新消息</a>
+                    <a href="">聯絡我們</a>
+                </nav>
+            </section>
+
+            <section class="float-r">
+                <a class="logo-a-s" href="//www.chaomin.com.tw" target="_blank">朝敏菓菜</a>
+                <div class="copyright">CHAOMIN &copy; 2016</div>
+            </section>
+        </div><!-- wrap -->
+    </footer><!-- footer -->
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/js")
     @RenderSection("scripts", required: false)
 </body>
 </html>
