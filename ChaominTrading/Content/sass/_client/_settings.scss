@@ -7,12 +7,11 @@ $img-path:              '../images' !default;
 $font-path:             '../font' !default;
 $index:                 false !default;           // 首頁用
 $page:                  false !default;           // 內頁用
-$enable-RWD:            false;
 
 
 // == helper/variables
 // ----------------------------------------------------------------------
-$body-bg:               #FEFCE1;
+$body-bg:               #F6F5F0 !default;
 $body-color:            #595959;
 $font-family-sp:        'Fenix', serif;
 // $link-color:            darken($brand-primary,5);

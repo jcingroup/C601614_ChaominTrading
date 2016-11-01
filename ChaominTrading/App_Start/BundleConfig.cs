@@ -21,7 +21,7 @@ namespace ChaominTrading
                       "~/Content/js/common.js",
                       "~/Content/js/tab.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/bundles/css").Include(
                       "~/Content/css/vendor/icomoon.css",
                       "~/Content/css/grid.css",
                       "~/Content/css/page.css"));

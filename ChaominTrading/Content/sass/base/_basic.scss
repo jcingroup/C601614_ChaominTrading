@@ -84,9 +84,6 @@ img {
     }
 }
 
-.font-sp { font-family: $font-family-sp; }
-
-
 
 // Headings
 // -----------------------------------------------
@@ -103,11 +100,6 @@ h1, h2, h3, h4, h5, h6 {
     $headings: $font-size-h1 $font-size-h2 $font-size-h3 $font-size-h4 $font-size-h5 $font-size-h6;
 
     h#{$i} { font-size: em(nth($headings, $i)); }
-}
-
-.lead {
-    font-size: $lead-font-size;
-    font-weight: $lead-font-weight;
 }
 
 

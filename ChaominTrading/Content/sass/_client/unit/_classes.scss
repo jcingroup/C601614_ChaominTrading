@@ -58,8 +58,8 @@
 
 // text
 // ------------------------------------------------------------
-.text-left { text-align: left; }
-.text-right { text-align: right; }
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
 .text-center { text-align: center; }
 
 // .title {
@@ -82,6 +82,8 @@
 //     }
 // }
 
+.font-sp    { font-family: $font-family-sp; }
+
 .font-tiny  { font-size: $font-size-xs; }  // 13px
 .font-sm    { font-size: $font-size-sm; }  // 14px
 .font-md    { font-size: rem(15); }
@@ -91,17 +93,25 @@
 .font-xxxl  { font-size: rem(48); }
 .font-jumbo { font-size: rem(66); }
 
+.lead {
+    font-size: $lead-font-size;
+    font-weight: $lead-font-weight;
+}
+
 
 // 情境: var.scss> $states: true
 // ------------------------------------------------------------
+.text-white { color: #fff; }
+.bg-white   { background: #fff; }
+
 @if $states {
-
-    .text-white { color: white; }
-    .bg-white   { background: white; }
-
     @each $type, $color in $state-type {
         .text-#{$type} { color: darken($color,5); }
-        .bg-#{$type}   { background: $color; }
+        .bg-#{$type} { background: $color; }
+        .hover-#{$type}:hover,
+        .hover-#{$type}:active { background: lighten($color,5); }
+        .hover-text-#{$type}:hover,
+        .hover-text-#{$type}:active { color: $color; }
     }
 }
 
