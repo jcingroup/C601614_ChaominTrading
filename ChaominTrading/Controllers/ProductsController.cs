@@ -1,9 +1,8 @@
 ﻿using System.Web.Mvc;
-using DotWeb.Controller;
 
-namespace DotWeb.WebApp.Controllers
+namespace ChaominTrading.Controllers
 {
-    public class ProductsController : WebUserController
+    public class ProductsController : Controller
     {
         // GET: Home
         public ActionResult Index()
@@ -15,6 +14,15 @@ namespace DotWeb.WebApp.Controllers
             return View();
         }
         public ActionResult content()
+        {
+            return View();
+        }
+        // 以下為demo用
+        public ActionResult Import_list()
+        {
+            return View();
+        }
+        public ActionResult Export_list()
         {
             return View();
         }
