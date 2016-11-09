@@ -7,13 +7,13 @@
 %center {
     max-width: $max-width;
     margin: 0 $gutter*3;
-    @include mq(wide) { margin: 0 auto; }
+    @include mq(wider) { margin: 0 auto; }
 
     @if $enable-RWD {
         @include mq-max(tablet) { margin: 0; }
     }
     @else {
-        @include mq-max(break(wide,-1)) {
+        @include mq-max(break(wider,-1)) {
             margin: 0;
             padding-left: $gutter*2;
             padding-right: $gutter*2;
@@ -35,13 +35,7 @@
 }
 
 .wrap {
-    @extend %center;
-    @extend %contain;
-}
-
-.container {
-    @extend %clearfix;
-    padding: $gutter;
+    @extend %center, %contain;
 }
 
 #header, #footer, #main {
@@ -50,33 +44,27 @@
 }
 
 #wrapper {
+    @if $wrapper-bg     { background: $wrapper-bg; }
+    @if not $enable-RWD { min-width: $min-width; }
     @if $lte7 { _height: 100%; }
     min-height: 100%;
     padding-bottom: $footer-height + $content-spacing; // 內容與footer間距
-
-    @if $wrapper-bg {
-        background: $wrapper-bg;
-    }
-
-    @if not $enable-RWD {
-        min-width: $min-width;
-    }
 }
 
 // header
 // ----------------------------------------------------------------------
 #header {
-    @if $header-bg { background: $header-bg; }
-    height: $header-height;
+    @if $header-bg     { background: $header-bg; }
+    @if $header-height { height: $header-height; }
     z-index: z(header);
 
     // 本次專案
-    .wrap { position: relative; }
-    @if $index {
-        box-shadow: 0 10px 0 rgba($brand-secondary,.6);
-    }
-    @if $page {
-        box-shadow: 0 6px 0 rgba($brand-secondary,.55);
+    border-bottom: 3px solid #F0EFE9;
+
+    .wrap {
+        position: relative;
+        background: url(#{$img-path}/headerBg.gif) 28% -172px no-repeat;
+        height: 100%;
     }
 }
 
@@ -90,8 +78,9 @@
 
     // 本次專案
     @extend %float-l;
-    position: relative;
-    top: 18px;
+    margin-top: 34px;
+    // position: relative;
+    // top: 35px;
 }
 
 
@@ -99,69 +88,78 @@
 // ----------------------------------------------------------------------
 #footer {
     @if $footer-bg { background: $footer-bg; }
+    @if $footer-color { color: $footer-color; }
     min-height: $footer-height;
     margin-top: -($footer-height);
     z-index: z(footer);
 
-    // 本次專案樣式
-    color: $brand-primary;
-}
-.logo-s {
-    @extend %inline-block;
-    @include text-pic('logo_s.gif', 171px, 21px);
-    vertical-align: middle;
-}
-.foot-contact {
-    position: relative;
-    padding-top: 28px;
-    padding-bottom: 28px;
+    // 本次專案
+    @extend .p-t-32;
+    border-top: 3px solid #BBDB83;
 
-    @include el(all) {
-        @include pos-center(x);
-        width: 720px;
-        height: 1px;
-        background: lighten($brand-primary,15);
+    @include el(before) {
+        @include absolute(top -41px left 25%);
+        width: 204px;
+        height: 41px;
+        background: url(#{$img-path}/footerBg2.png) 0 0 no-repeat;
     }
-    &::before { top: 0; }
-    &::after  { bottom: 0; }
 
-    dt {
-        font-size: em(21);
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-    span, dd {
-        @extend %inline-block, .font-sp, .m-a-0;
-        line-height: 1.001;
-    }
-    dd {
-        @extend .p-x-12;
-        font-size: em(18);
-        &:not(:first-of-type) { border-left: 1px solid $brand-primary; }
-    }
-    span {
-        @extend .p-l-8;
-        vertical-align: middle;
-    }
-}
-.foot-social {
     a {
-        @extend %inline-block, .m-x-4;
-        @include text-pic('icon-social.gif', 42px, 43px);
-
-        &:nth-child(2) { background-position: -55px 0; }
-        &:nth-child(3) { background-position: -110px 0; }
+        color: $footer-color;
+        &:hover, &:active { color: #BBDB83; }
     }
 }
 
-// main
-// ----------------------------------------------------------------------
-#main {
-    padding-top: 80px;
-    @if $index {
-        background: url(#{$img-index}/mainBg.gif) center 0 no-repeat;
+.copyright {
+    @extend %float-r, .m-t-48;
+    font-size: em(11);
+
+    a {
+        @extend %block, .m-b-4;
+        @include text-pic('logoA_s.gif', 112px, 49px);
     }
-    @if $page {
-        @extend %center;
+}
+
+// 貿易logo
+.logo-s {
+    @extend %block;
+    @include text-pic('logo_s.gif', 374px, 36px);
+}
+
+.foot-contact {
+    @extend .text-left;
+
+    address, em { font-style: normal; }
+    address {
+        font-size: em(13);
+    }
+    h6 {
+        @extend .m-y-12;
+        color: $footer-color;
+        letter-spacing: 1px;
+    }
+    p + p { @extend .m-t-4; }
+    em {
+        @extend %inline-block;
+        width: 60px;
+        letter-spacing: 1px;
+    }
+}
+
+.foot-nav {
+    @extend .text-left;
+    header {
+        @extend .font-xxl, .m-b-16;
+        color: #BBDB83;
+        letter-spacing: 4px;
+        line-height: 1;
+    }
+    a {
+        @extend %block;
+        letter-spacing: 2px;
+
+        &:not(:last-child) {
+            @extend .m-b-8;
+        }
     }
 }

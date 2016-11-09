@@ -3,18 +3,15 @@
 // setting
 // ------------------------------------------------------------
 // navbar style
-$navbar-height:         28px !default;
+$navbar-height:         false !default;
 $navbar-bg:             false !default; // #2AA19D
 
 // nav style
 $sub-nav-has:           false !default;    // 子選單
 $nav-root:              if($sub-nav-has, '.root', 'a') !default;
 $nav-height:            false !default;   // 'full' | 18px | flase
-$nav-font-size:         19px !default;
-$nav-color:             $brand-primary !default;
-
-// 當前選單
-$current:               page('&:nth-child');
+$nav-font-size:         18px !default;
+$nav-color:             #000 !default;
 
 // 行動版
 $mobile-menu-bk:        'desktop' !default;     // 從()螢幕寬度以下開始出現行動版選單
@@ -22,10 +19,22 @@ $mobile-menu-style:     'overlay' !default;
 $mobile-menu-bg:        #424242 !default;
 $mobile-menu-width:     100% !default;
 
+// 當前頁選單
+@function page($current-item, $map: $menu-item) {
+    $current: ();
 
-// main
+    @each $item in $map {
+        $i: index($map, $item);
+        $current: $current, unquote(".#{$item} #{$current-item}(#{$i})");
+    }
+    @return $current;
+}
+$current: page('&:nth-child');
+
+
+// output
 // ------------------------------------------------------------
-// 主選單
+// == 主選單
 .navbar {
     @if $navbar-height { height: $navbar-height }
     @if $navbar-bg     { background: $navbar-bg }
@@ -35,9 +44,11 @@ $mobile-menu-width:     100% !default;
     z-index: z(menu);
 
     // 本次專案
-    @extend .clear, .text-right;
-    position: relative;
-    top: 34px;
+    @extend %float-l;
+    margin-top: 73px;
+    margin-left: 316px;
+
+    @include mq(wider) { margin-left: 406px; }
 
     #{$nav-root} {
         @if $nav-color     { color: $nav-color; }
@@ -50,83 +61,56 @@ $mobile-menu-width:     100% !default;
         }
 
         // 本次專案
-        @extend .p-l-24;
         position: relative;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
 
         &:not(:last-child) {
-            @extend .p-r-24;
-            background: url(#{$img-path}/nav-line.gif) right center no-repeat;
+            @extend .m-r-48;
         }
 
-        @include el(before) {
+        @include el(before, $content:'\e90c') {
             @include pos-center(x);
             @include transition(top .35s, opacity .6s);
-            width: 30%;
-            height: 2px;
-            background: $nav-color;
-            top: 0;
+            font-family: 'icomoon';
+            font-size: em(13);
+            top: -10px;
             opacity: 0;
         }
 
         &:hover, &:active, &.current {
+            color: #B9C85D;
+
             &::before {
-                top: 130%;
                 opacity: 1;
+                top: 117%;
             }
         }
     }
 }
 
-// mobile-nav
+// == top-nav
+.top-nav {
+    @include absolute(top 28px left 48.1%);
+
+    a {
+        @extend .m-r-12;
+        color: #828282;
+        font-size: em(12);
+        letter-spacing: 2px;
+
+        &:hover, &:active {
+            color: $brand-primary;
+        }
+    }
+}
+
+// == mobile-nav
 @if $enable-RWD {
     @include mobile-nav('menu',break(#{$mobile-menu-bk},-1));
     @include navBar-trigger('mobile-trigger',break(#{$mobile-menu-bk},-1));
 }
 
-.top-nav {
-    @extend %float-r;
-    position: relative;
-    top: 63px;
-    color: $nav-color;
-
-    // 登入前
-    button, a {
-        &:hover, &:active { color: lighten($nav-color,10); }
-    }
-    button {
-        @extend .m-r-16;
-        border: none;
-        color: $nav-color;
-        outline: none;
-    }
-    .icon-user, .icon-cart {
-        background: url(#{$img-path}/icon-topnav.gif) 0 center no-repeat;
-        height: 24px;
-        padding-left: 27px;
-    }
-    .icon-cart { background-position: -111px center; }
-
-    // 購物車數量
-    .cart-num {
-        @extend %inline-block, .text-white;
-        @include circle(16px, center, $deep-orange);
-        @include absolute(right 53px top -1px);
-        font-size: em(10);
-        font-style: normal;
-    }
-
-    // 登入後
-    ul { @extend %inline, .m-x-4; }
-    li {
-        @extend .m-x-0;
-        line-height: 1.01;
-
-        a { color: darken($orange,10); }
-    }
-}
-
-// 第二層選單
+// == sub-nav
 @if $sub-nav-has {
     #menu {
         li {

@@ -1,15 +1,7 @@
 @charset "UTF-8";
 
-$figure-inline:           false !default;
-$figure-inline-hack:      $figure-inline !default;
+$figure-inline-hack:      false !default;
 $figure-effect:           false !default;
-
-$figcaption-effect:       false !default;
-$figcaption-full:         false !default;
-
-// 圖片樣式
-$figure-img-full:         false !default;
-
 
 // common style
 %figure-overlay {
@@ -18,15 +10,8 @@ $figure-img-full:         false !default;
 }
 
 figcaption {
-    // 文字強迫大寫
-    // text-transform: uppercase;
-
     @include prefix(backface-visibility, hidden);
-
     &::before, &::after { pointer-events: none; }
-
-    @if $figcaption-effect { @include transition($figcaption-effect); }
-    @if $figcaption-full   { @extend %figure-overlay; }
 }
 
 figure {
@@ -34,10 +19,6 @@ figure {
     overflow: hidden;
     cursor: pointer;
 
-    @if $figure-inline {
-        @extend %inline-block;
-        vertical-align: top;
-    }
     @if $figure-inline-hack {
         margin-right: -4px;
         &:first-child { margin-left: -4px; }
@@ -50,12 +31,6 @@ figure {
         z-index: z(figure);
         white-space: nowrap;
         opacity: 0;
-    }
-    img {
-        @if $figure-img-full {
-            min-width: 100%;
-            min-height: 100%;
-        }
     }
 
     // RWD
@@ -73,50 +48,26 @@ figure {
     }
 }
 
-// 最新消息
-.news-list {
-    max-width: 350px;
+// 滿版圖片列表
+.fullPic-list {
+    @extend %inline-block;
+    vertical-align: top;
+    width: 31%;
 
-    @if $index {
-        @extend .m-a-0;
-        &:not(:last-child) { margin-right: 70px; }
-    }
-    @if $page {
-        @extend .m-b-24, .m-x-16;
+    &:not(:nth-child(3n)) {
+        margin-right: 1%;
     }
 
     figcaption {
-        @extend %clearfix, .p-a-12, .text-left, .m-t-4;
-        position: relative;
-        height: 220px;
-        background: #FFF9A7;
+        @extend %figure-overlay;
+        // background: #717562;
     }
     img {
         min-width: 100%;
-        max-height: 270px;
-        min-height: 270px;
+        min-height: 100%;
         @include transition(transform .5s, filter 1s);
-    }
-    h3 { @extend .m-b-8; }
-    p { @extend .font-lg; }
-    .btn {
-        @extend .m-t-24;
-        @include absolute(right 12px bottom 12px);
-        background: #fef272;
-        color: #595959;
-        text-shadow: none;
-        z-index: z(figure) + 1;
-
-        &:hover, &:active {
-            background: darken($brand-secondary,15);
-            color: #fff;
-        }
     }
 
     &:hover, &:active {
-        img {
-            @include transform(scale(1.1));
-            @include prefix(filter, brightness(1.2));
-        }
     }
 }

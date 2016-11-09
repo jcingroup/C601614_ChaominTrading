@@ -238,6 +238,12 @@
     <Content Include="Content\font\fontAwesome\fontawesome-webfont.svg" />
     <Content Include="Content\font\icomoon\icomoon.svg" />
     <Content Include="Content\font\themify-icons\themify.svg" />
+    <Content Include="Content\images\footerBg.gif" />
+    <Content Include="Content\images\footerBg2.gif" />
+    <Content Include="Content\images\footerBg2.png" />
+    <Content Include="Content\images\headerBg.gif" />
+    <Content Include="Content\images\icon-nav.gif" />
+    <Content Include="Content\images\icon-title.gif" />
     <Content Include="Content\images\index\site1_bg.gif" />
     <Content Include="Content\images\index\site1_bg2.gif" />
     <Content Include="Content\images\index\site1_logo.png" />
@@ -245,6 +251,10 @@
     <Content Include="Content\images\index\site2_bg.gif" />
     <Content Include="Content\images\index\site2_logo.gif" />
     <Content Include="Content\images\index\site2_slogan.gif" />
+    <Content Include="Content\images\logo.gif" />
+    <Content Include="Content\images\logoA_s.gif" />
+    <Content Include="Content\images\logo_s.gif" />
+    <Content Include="Content\images\product-list.jpg" />
     <Content Include="Content\js\common.js" />
     <Content Include="Content\js\tab.js" />
     <Content Include="favicon.ico" />

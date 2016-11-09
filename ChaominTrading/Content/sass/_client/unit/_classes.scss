@@ -62,26 +62,6 @@
 .text-right  { text-align: right; }
 .text-center { text-align: center; }
 
-// .title {
-//     font-size: em(37px);
-//     margin-bottom: $spacer*2;
-
-//     span {
-//         border-bottom: 1px solid #B4D0DE;
-//         padding-bottom: 5px;
-//     }
-// }
-// .title-underline2 {
-//     position: relative;
-
-//     @include el(after) {
-//         height: 1px;
-//         width: 6%;
-//         background: $brand-primary;
-//         @include absolute(left 0 bottom -1px);
-//     }
-// }
-
 .font-sp    { font-family: $font-family-sp; }
 
 .font-tiny  { font-size: $font-size-xs; }  // 13px
@@ -96,6 +76,27 @@
 .lead {
     font-size: $lead-font-size;
     font-weight: $lead-font-weight;
+}
+
+.title {
+    @extend .m-y-64;
+    font-size: em(45);
+    line-height: 1.01;
+    letter-spacing: 8px;
+    position: relative;
+
+    @include el(before) {
+        @include pos-center(x);
+        bottom: -20px;
+        width: 75px;
+        border-top: 3px solid #fff;
+    }
+
+    span {
+        background: url(#{$img-path}/icon-title.gif) 0 0 no-repeat;
+        padding-left: 17px;
+        padding-top: 6px;
+    }
 }
 
 
