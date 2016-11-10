@@ -6,15 +6,15 @@
 // 置中(有最大寬度限制,非滿版才需要)
 %center {
     max-width: $max-width;
-    margin: 0 $gutter*3;
-    @include mq(wider) { margin: 0 auto; }
 
     @if $enable-RWD {
+        margin: 0 $gutter*3;
+        @include mq(wider) { margin: 0 auto; }
         @include mq-max(tablet) { margin: 0; }
     }
     @else {
+        margin: 0 auto;
         @include mq-max(break(wider,-1)) {
-            margin: 0;
             padding-left: $gutter*2;
             padding-right: $gutter*2;
         }
@@ -65,6 +65,10 @@
         position: relative;
         background: url(#{$img-path}/headerBg.gif) 28% -172px no-repeat;
         height: 100%;
+
+        @include mq-max(break(wide,-1)) {
+            background-position: 38% -172px;
+        }
     }
 }
 

@@ -241,6 +241,7 @@
     <Content Include="Content\images\footerBg.gif" />
     <Content Include="Content\images\footerBg2.gif" />
     <Content Include="Content\images\footerBg2.png" />
+    <Content Include="Content\images\fullPic_list_bg.png" />
     <Content Include="Content\images\headerBg.gif" />
     <Content Include="Content\images\icon-nav.gif" />
     <Content Include="Content\images\icon-title.gif" />

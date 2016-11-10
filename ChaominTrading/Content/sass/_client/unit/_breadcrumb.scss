@@ -23,15 +23,15 @@ $breadcrumb-link-font-size: 14px;
 
         &:not(:last-child) {
             margin-right: 6px;
-            // @include el(after, false, '/') {
-            //     margin-left: 3px;
-            //     color: lighten(nth($breadcrumb-link,1),20);
-            // }
-        }
 
-        &:last-child {
-            // @include text-overflow(50%);
+            @include el(after, false, '/') {
+                margin-left: 3px;
+                color: nth($breadcrumb-link,1);
+            }
         }
+        // &:last-child { @include text-overflow(50%); }
+
+        &:first-child::after { @extend .hidden; }
     }
 
     a {

@@ -51,3 +51,20 @@ $figure-img-full:      true;
 #main {
     @extend %center;
 }
+
+// == 產品
+// 產品內容
+.product-info {
+    @extend .text-left, .p-r-32;
+
+    article { @extend .font-md, .m-y-24; }
+    ul { @extend .text-secondary, .font-md; }
+    li { @extend .m-y-4; }
+    em {
+        @extend .m-r-8;
+        font-style: normal;
+    }
+}
+.product-pic {
+    img { width: 100%; }
+}

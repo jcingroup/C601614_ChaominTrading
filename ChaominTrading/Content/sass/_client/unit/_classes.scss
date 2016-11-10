@@ -78,27 +78,6 @@
     font-weight: $lead-font-weight;
 }
 
-.title {
-    @extend .m-y-64;
-    font-size: em(45);
-    line-height: 1.01;
-    letter-spacing: 8px;
-    position: relative;
-
-    @include el(before) {
-        @include pos-center(x);
-        bottom: -20px;
-        width: 75px;
-        border-top: 3px solid #fff;
-    }
-
-    span {
-        background: url(#{$img-path}/icon-title.gif) 0 0 no-repeat;
-        padding-left: 17px;
-        padding-top: 6px;
-    }
-}
-
 
 // 情境: var.scss> $states: true
 // ------------------------------------------------------------
@@ -125,5 +104,48 @@
             display: none;
             visibility: hidden;
         }
+    }
+}
+
+
+// 本次專案
+// ------------------------------------------------------------
+.title, .title-sort {
+    position: relative;
+}
+.title {
+    @extend .m-t-64;
+    font-size: em(45);
+    line-height: 1.01;
+    letter-spacing: 8px;
+    margin-bottom: 86px;
+
+    @include el(before) {
+        @include pos-center(x);
+        bottom: -20px;
+        width: 75px;
+        border-top: 3px solid #fff;
+    }
+
+    span {
+        background: url(#{$img-path}/icon-title.gif) 0 0 no-repeat;
+        padding-left: 17px;
+        padding-top: 6px;
+    }
+
+    [lang="en"] & {
+        @extend .font-sp;
+        text-transform: uppercase
+    }
+}
+
+.title-sort {
+    @extend .text-primary, .font-sp;
+    font-size: em(38);
+    letter-spacing: 6px;
+
+    @include el(before) {
+        @include absolute(right 0 left 305px bottom 7px);
+        border-top: 1px solid #BBDB83;
     }
 }

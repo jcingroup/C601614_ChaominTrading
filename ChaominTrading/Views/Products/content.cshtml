@@ -1,7 +1,30 @@
 ﻿
 @{
-    ViewBag.Title = "content";
+    ViewBag.Title = "PRODUCTS SPECIES:台灣高麗菜";
+    ViewBag.BodyClass = "Export";
+    ViewBag.breadCrumb = "台灣高麗菜";
 }
 
-<h2>content</h2>
+@section breadCrumb {
+    <li><a href="~/Products/list">出口</a></li>
+}
 
+<h1 class="title"><span>台灣高麗菜</span></h1>
+
+<section class="row row-x-0">
+    <div class="col-6 product-info">
+        <h2 class="title-sort">DESCRIPTION</h2>
+        <article>
+            @* 簡介-非編輯器 *@
+            Taiwan Cabbage cabbage seeds produce an oblate or flat-growing hybrid known as KY Cross, with heads that are wider than they are tall. These are surrounded with massive wrapper leaves. This popular variety has really nice flavour and outstanding heat tolerance in heads averaging 1.5kg, but up to 2.5kg (6 lbs) in warm summers with good soil fertility. Rely on KY Cross Taiwan Cabbage for good production in coastal settings, with hybrid uniformity and excellent culinary potential. Days to maturity is from transplant date.
+        </article>
+        <ul class="list-unstyled">
+            <li><em>產地:</em></li>
+            <li><em>包裝:</em></li>
+            <li><em>產季:</em></li>
+        </ul>
+    </div>
+    <div class="col-6 product-pic">
+        <img src="~/Content/images/product-list.jpg" alt="圖片">
+    </div>
+</section>
