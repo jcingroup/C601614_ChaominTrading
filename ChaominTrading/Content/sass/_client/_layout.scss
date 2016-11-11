@@ -4,7 +4,7 @@
 /*      layout
 -----------------------------------------------------------------------*/
 // 置中(有最大寬度限制,非滿版才需要)
-%center {
+%container {
     max-width: $max-width;
 
     @if $enable-RWD {
@@ -21,7 +21,7 @@
     }
 }
 // 容器
-%contain {
+%container-fluid {
     @extend %clearfix;
 
     @if $enable-RWD {
@@ -35,11 +35,11 @@
 }
 
 .wrap {
-    @extend %center, %contain;
+    @extend %container, %container-fluid;
 }
 
 #header, #footer, #main {
-    @extend %contain;
+    @extend %container-fluid;
     position: relative;
 }
 
@@ -119,15 +119,16 @@
     font-size: em(11);
 
     a {
-        @extend %block, .m-b-4;
+        @extend .m-b-4;
         @include text-pic('logoA_s.gif', 112px, 49px);
+        display: block;
     }
 }
 
 // 貿易logo
 .logo-s {
-    @extend %block;
     @include text-pic('logo_s.gif', 374px, 36px);
+    display: block;
 }
 
 .foot-contact {
@@ -144,7 +145,7 @@
     }
     p + p { @extend .m-t-4; }
     em {
-        @extend %inline-block;
+        display: inline-block;
         width: 60px;
         letter-spacing: 1px;
     }
@@ -159,7 +160,7 @@
         line-height: 1;
     }
     a {
-        @extend %block;
+        display: block;
         letter-spacing: 2px;
 
         &:not(:last-child) {

@@ -1,9 +1,7 @@
 @charset "UTF-8";
 
-$font-size-root:  16px !default;
-
 // px換算至em
-@function em($px, $context: $font-size-root) {
+@function em($px, $context: 16px) {
     @if (unitless($px)) {
         $px: $px * 1px;
     }
@@ -13,16 +11,6 @@ $font-size-root:  16px !default;
     }
 
     @return $px / $context * 1em;
-}
-
-// 去單位
-@function strip-unit($number) {
-    @return $number / ($number * 0 + 1);
-}
-
-// px to rem
-@function rem($px) {
-    @return (strip-unit($px) / strip-unit($font-size-root)) + rem;
 }
 
 // 算寬度百分比

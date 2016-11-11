@@ -12,7 +12,7 @@ $label-mg:              0 5px!default;
 // --------------------------------------------------
 
 .label {
-    @extend %inline-block;
+    display: inline-block;
     padding: $label-pd;
     margin: $label-mg;
     border-radius: $label-border-radius;

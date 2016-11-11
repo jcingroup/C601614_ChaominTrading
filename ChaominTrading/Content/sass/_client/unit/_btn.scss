@@ -5,7 +5,7 @@ $btn-state-color:        $white !default;
 $btn-disabled-bg:        $muted !default;
 $btn-effect:             'background .35s, color .5s' !default;
 $btn-display:            inline-block !default;
-$btn-pd:                 $form-element-pd !default;
+$btn-pd:                 $gutter*0.8 $gutter*2 !default;
 $btn-pd-sm:              $gutter/3 $gutter/2 !default;
 $btn-border-radius:      nth($border-radius,1) !default;
 $btn-font-size:          18px !default;
@@ -68,7 +68,7 @@ button { border: none; }
 }
 
 .btn-link {
-    @extend %inline;
+    display: inline;
     @if $btn-link-color    { color: $link-color; }
     @if $btn-line-height   { line-height: $line-height; }
     @if $btn-bg            { background: none; }

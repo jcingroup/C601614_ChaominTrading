@@ -289,7 +289,6 @@
     <Content Include="Content\sass\helper\mixins\_gradient.scss" />
     <Content Include="Content\sass\helper\mixins\_grid.scss" />
     <Content Include="Content\sass\helper\mixins\_icon.scss" />
-    <Content Include="Content\sass\helper\mixins\_media.scss" />
     <Content Include="Content\sass\helper\mixins\_mobile-nav.scss" />
     <Content Include="Content\sass\helper\mixins\_mq.scss" />
     <Content Include="Content\sass\helper\mixins\_placeholders.scss" />
@@ -297,7 +296,6 @@
     <Content Include="Content\sass\helper\mixins\_prefix.scss" />
     <Content Include="Content\sass\helper\mixins\_pseudo.scss" />
     <Content Include="Content\sass\helper\mixins\_shape.scss" />
-    <Content Include="Content\sass\helper\mixins\_state.scss" />
     <Content Include="Content\sass\helper\mixins\_tab-focus.scss" />
     <Content Include="Content\sass\helper\mixins\_text.scss" />
     <Content Include="Content\sass\helper\_function.scss" />

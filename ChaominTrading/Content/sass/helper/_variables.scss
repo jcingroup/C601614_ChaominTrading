@@ -18,7 +18,9 @@ $link-decoration:            none !default;                        // 連結底�
 $link-hover-color:           $brand-secondary !default;            // 移過後顏色
 $link-hover-decoration:      false !default;                       // 移過後底線樣式
 $link-transition:            color .35s, background .3s !default;  // 滑鼠移過動態特效
-$link-tab-fous:              false !default;                       // 聚焦樣式, 可設 true,false,thin dotted #顏色碼
+
+$tab-focus-outline:          1px solid darken($brand-primary, 5) !default; // 聚焦色
+$link-tab-fous:              false !default;                               // 聚焦樣式, 可設 true,false,thin dotted #顏色碼
 
 
 // == Grid

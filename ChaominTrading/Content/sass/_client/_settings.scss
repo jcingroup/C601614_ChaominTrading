@@ -9,15 +9,19 @@ $index:                 false !default;           // 首頁用
 $page:                  false !default;           // 內頁用
 
 
-// == helper/variables
+// == helper/variables, base/all
 // ----------------------------------------------------------------------
 $body-bg:               #F6F5F0 !default;
-$body-color:            #595959;
+$body-color:            #333;
 $font-family-sp:        'Rubik', sans-serif;
-// $link-color:            darken($brand-primary,5);
 
-// $font-size-h1:          45px;
 $headings-color:        $brand-secondary !default;
+
+$table-border-color:    #BBDB83;
+$table-pd:              17px 25px;
+$th-td-styled:          (font-size: 15px);
+$td-styled:             (text-align: left);
+$th-styled:             (color: #65942E, font-weight: normal);
 
 
 // == layout
@@ -66,54 +70,5 @@ $z-index: (
 
 // == unit
 // ----------------------------------------------------------------------
-// btn
-$btn-border-radius:            false;
-$btn-pd:                       8px 20px;
-$btn-hover-bg:                 darken($brand-secondary,15);
-$btn-styles: (
-    text-shadow: 1px 1px 1px rgba(#000,.35)
-);
-
-// figure
-$figure-inline:                true;
-$figure-inline-hack:           false;
 
 
-// == base
-// ----------------------------------------------------------------------
-// table
-$table-border-color:           lighten($brand-secondary,15);
-$table-bordered:               true;
-// $table-align:                  false;
-$table-pd:                     4px 10px;
-$table-margin-bottom:          false;
-// $table-bg-accent:              lighten(#CAE4EF,5); // darken($muted,3)
-// $table-bg-hover:               $pale-yellow;
-$th-styled: (
-   color: darken($brand-primary,10),
-   background: lighten($brand-primary,52)
-);
-// $td-styled: (
-//     background: lighten(#EBEBEB,5)
-// );
-// $tfoot-styled:(
-//     background: $pale-yellow
-// );
-// $td-item-styled: (
-//     text-align: center,
-//     background: lighten(#B3E9F5,10)
-// );
-
-// form
-$input-border-focus:            darken($amber,5);
-$input-placeholder:             lighten($body-color,20);
-$input-bg:                      lighten($warning,18);
-$input-border-color:            lighten($brand-secondary,15);
-
-$form-element-radius:           false;
-$enable-input-underline:        true;
-
-$input-group-addon-color:       lighten($brand-primary,65);
-$input-group-addon-bg:          darken($amber,12);
-$input-group-addon-size:        23px;
-$input-group-border:            1px solid #ddd;

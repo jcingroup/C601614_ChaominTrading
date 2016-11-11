@@ -2,23 +2,22 @@
 
 // common - extend的內容 寫在 base/util
 // ------------------------------------------------------------
-.block         { @extend %block; }
-.inline-block  { @extend %inline-block; }
-.inline        { @extend %inline; }
-
+// 樣式很多或很常用的才用 佔位符% (ref: base/util)
 .float-l       { @extend %float-l; }
 .float-r       { @extend %float-r; }
-.clear         { clear: both; }
 .clearfix      { @extend %clearfix; }
-
-.circle        { @extend %circle; } // 圓形
 .full          { @extend %full; }
-.half          { @extend %half; }
 .text-hide     { @extend %text-hide; }
 .sr-only       { @extend %sr-only; }
-.img-center    { @extend %block; margin: auto; }
 
+// 樣式1~2筆
+.block         { display: block; }
+.inline-block  { display: inline-block; }
+.inline        { display: inline; }
+.clear         { clear: both; }
 .hidden        { display: none; }
+.circle        { border-radius: 50%; } // 圓形
+.img-center    { display: block; margin: auto; }
 
 .m-x-auto {
     margin-right: auto;
@@ -104,48 +103,5 @@
             display: none;
             visibility: hidden;
         }
-    }
-}
-
-
-// 本次專案
-// ------------------------------------------------------------
-.title, .title-sort {
-    position: relative;
-}
-.title {
-    @extend .m-t-64;
-    font-size: em(45);
-    line-height: 1.01;
-    letter-spacing: 8px;
-    margin-bottom: 86px;
-
-    @include el(before) {
-        @include pos-center(x);
-        bottom: -20px;
-        width: 75px;
-        border-top: 3px solid #fff;
-    }
-
-    span {
-        background: url(#{$img-path}/icon-title.gif) 0 0 no-repeat;
-        padding-left: 17px;
-        padding-top: 6px;
-    }
-
-    [lang="en"] & {
-        @extend .font-sp;
-        text-transform: uppercase
-    }
-}
-
-.title-sort {
-    @extend .text-primary, .font-sp;
-    font-size: em(38);
-    letter-spacing: 6px;
-
-    @include el(before) {
-        @include absolute(right 0 left 305px bottom 7px);
-        border-top: 1px solid #BBDB83;
     }
 }

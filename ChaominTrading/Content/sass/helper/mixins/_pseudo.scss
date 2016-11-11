@@ -2,22 +2,21 @@
 
 
 // 插入偽類
-@mixin el($pseudo, $display: block, $content: null) {
+@mixin el($pseudo, $display: block, $content: '') {
     $selector: if($pseudo == 'all', '&::before,&::after', '&::#{$pseudo}');
 
     #{$selector} {
         // content 是否要有值
-        @if $content {
-            content: $content;
-        }
-        @else {
-            @include mixin-dryer('pseudo') {
+        @if $content == '' and $display == block {
+            @include mixin-dryer(pseud) {
                 content: '';
+                display: block;
             }
+        } @else {
+            content: $content;
+            display: if($display, $display, null);
         }
-        display: if($display, $display, null);
-        // @if $display {
-        // }
+
         @content;
     }
 }

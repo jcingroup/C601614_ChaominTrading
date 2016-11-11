@@ -153,7 +153,8 @@ $current: page('&:nth-child');
         }
     }
     .sub-nav {
-        @extend %block, .text-left;
+        @extend .text-left;
+        display: block;
         opacity: 0;
         visibility: hidden;
 

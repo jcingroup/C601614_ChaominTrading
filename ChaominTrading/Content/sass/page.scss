@@ -5,9 +5,6 @@
 $page:                 true;
 // $enable-ckb-rdo:       true;
 
-$figure-img-full:      true;
-// $collapse-title-icon-color: #fff;
-// $collapse-title-hover-icon-color: false;
 
 // import
 // ------------------------------------------------------------
@@ -26,7 +23,7 @@ $figure-img-full:      true;
 
 @import "base/basic";
 // @import "base/form";
-// @import "base/table";
+@import "base/table";
 @import "base/util";
 
 // 本頁專用
@@ -36,12 +33,7 @@ $figure-img-full:      true;
 @import "_client/unit/goTop";
 @import "_client/unit/btn";
 @import "_client/unit/list";
-// @import "_client/unit/label";
-// @import "_client/unit/input-group";
-// @import "_client/unit/modal";
-// @import "_client/unit/collapse";
 @import "_client/unit/figure";
-// @import "_client/unit/hover";
 
 @import "_client/unit/classes"; // 建議放置在最後一個
 
@@ -49,22 +41,141 @@ $figure-img-full:      true;
 // main
 // ------------------------------------------------------------
 #main {
-    @extend %center;
+    @extend %container;
+}
+
+// 標題
+.title, .title-sort {
+    position: relative;
+}
+.title {
+    @extend .m-t-64;
+    font-size: em(45);
+    line-height: 1.01;
+    letter-spacing: 8px;
+    margin-bottom: 86px;
+
+    @include el(before) {
+        @include pos-center(x);
+        bottom: -20px;
+        width: 75px;
+        border-top: 3px solid #fff;
+    }
+
+    span {
+        background: url(#{$img-path}/icon-title.gif) 0 0 no-repeat;
+        padding-left: 17px;
+        padding-top: 6px;
+    }
+
+    [lang="en"] & {
+        @extend .font-sp;
+        text-transform: uppercase
+    }
 }
 
 // == 產品
+// 小標
+.title-sort {
+    @extend .text-primary, .font-sp;
+    font-size: em(39);
+    letter-spacing: 6px;
+
+    @include el(before) {
+        @include absolute(right 0 left 310px bottom 7px);
+        border-top: 1px solid #BBDB83;
+    }
+}
+
+// 滿版圖片列表
+.fullPic-list {
+    @extend .text-white, .m-x-0, .m-b-48;
+    display: inline-block;
+    vertical-align: top;
+    width: 32%;
+
+    &:not(:nth-of-type(3n)) { margin-right: 1.3%;}
+
+    @include mq(desktop,break(wider,-1)) { height: 260px; }
+
+    figcaption {
+        @extend %figure-overlay;
+        background: url(#{$img-path}/fullPic_list_bg.png) 0 bottom repeat-x;
+        @include transition(background 0.35s);
+    }
+    img {
+        min-width: 100%;
+        min-height: 100%;
+        @include transition(opacity 0.35s, transform 0.35s);
+        @include transform(scale(1.15));
+    }
+
+    h3 {
+        @extend .text-white;
+        @include absolute (bottom 0 left 0 right 0);
+        font-size: em(22);
+        letter-spacing: 2px;
+
+        [lang="en"] & { @extend .font-sp; }
+
+        @include transition(transform 0.35s);
+        @include transform(translate3d(0,0,0));
+    }
+
+    p {
+        @extend .p-b-16, .m-t-48, .m-x-32, .text-left;
+        border-bottom: 1px solid #C8C8BD;
+        opacity: 0;
+        font-size: em(15);
+        @include transition(opacity 0.35s, transform 0.35s);
+        @include transform(translate3d(0,-20px,0) scale(1.1));
+    }
+
+    &:hover {
+        img { @include transform(scale(1)); }
+        h3 { @include transform(translate3d(0,-20px,0)); }
+        p {
+            opacity: 1;
+            @include transform(translate3d(0,0,0) scale(1));
+        }
+        figcaption { background-color: rgba(#929E5F,.92); }
+    }
+}
+
 // 產品內容
 .product-info {
-    @extend .text-left, .p-r-32;
+    @extend .text-left, .p-r-32, .m-b-32;
+}
+.product-pic img {
+    width: 100%;
+}
 
-    article { @extend .font-md, .m-y-24; }
-    ul { @extend .text-secondary, .font-md; }
-    li { @extend .m-y-4; }
+.editor {
+    @extend .text-left, .font-md;
+
+    th, td:first-of-type {
+        white-space: nowrap;
+    }
+    ul, ol {
+        @extend %list-unstyled, .text-secondary, .m-t-24;
+    }
+    li {
+        @extend .m-y-4;
+    }
     em {
         @extend .m-r-8;
         font-style: normal;
     }
-}
-.product-pic {
-    img { width: 100%; }
+    dl {
+        @extend .text-secondary, %clearfix, .m-b-4;
+    }
+    dt, dd {
+    }
+    dt {
+        @extend %float-l;
+        width: 98px;
+    }
+    dd {
+        overflow: hidden;
+    }
 }
