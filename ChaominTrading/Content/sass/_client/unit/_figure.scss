@@ -2,6 +2,7 @@
 
 $figure-inline-hack:      false !default;
 $figure-effect:           false !default;
+$figure-margin:           0 !default;
 
 // common style
 %figure-overlay {
@@ -18,6 +19,7 @@ figure {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    margin: $figure-margin;
 
     @if $figure-inline-hack {
         margin-right: -4px;

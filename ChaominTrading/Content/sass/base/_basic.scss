@@ -3,9 +3,6 @@
 
 /*      basic elements - reboot
 -----------------------------------------------------------------------*/
-h1,h2,h3,h4,h5,h6,figure,blockquote,pre { margin-top: 0; }
-p,ul,ol,li,dl,dt,dd{ margin:0; padding:0; }
-
 html, body {
     text-align: center;
     height: 100%;
@@ -87,6 +84,8 @@ img {
 
 // Headings
 // -----------------------------------------------
+h1 { margin-top: 0; }
+
 h1, h2, h3, h4, h5, h6 {
     @if $headings-margin-bottom   { margin-bottom: $headings-margin-bottom; }
     @if $headings-font-family     { font-family: $headings-font-family; }

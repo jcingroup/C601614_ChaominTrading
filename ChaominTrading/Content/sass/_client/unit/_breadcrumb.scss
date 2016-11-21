@@ -12,7 +12,7 @@ $breadcrumb-link-font-size: 14px;
 // --------------------------------------------------
 
 .breadcrumb {
-    @extend %list-inline, .text-left, .m-t-16, .m-b-48;
+    @extend %list-inline, .text-left, .m-t-16, .m-b-48, .p-l-0;
 
     font-size: $breadcrumb-font-size;
     color: $breadcrumb-color;

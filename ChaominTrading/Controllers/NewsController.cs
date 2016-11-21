@@ -7,13 +7,9 @@ namespace ChaominTrading.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View("list");
+            return View("News");
         }
-        public ActionResult list()
-        {
-            return View();
-        }
-        public ActionResult content()
+        public ActionResult News()
         {
             return View();
         }

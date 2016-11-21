@@ -10,24 +10,15 @@ $('.goTop').click(function() {
     event.preventDefault();
 });
 
-// 下拉選單
-// var $dropbtn = $("[data-dropdown='toggle']");
-// var dropcontent = "[data-dropdown='content']";
-// $dropbtn.click(function(){
-//     event.preventDefault();
-//     $(this).next(dropcontent).slideToggle("300");
-// });
-// $dropbtn.blur(function(){
-//     $(this).next(dropcontent).slideUp("300");
-// });
-
 // 縮放特效
 var $collapse = $("[data-toggle='collapse']");
 var fall = '.collapse-content';
+// 除第一個外隱藏
+$(fall).slice(1).hide();
 
 $collapse.click(function () {
     $(this).next(fall).slideToggle();
-    $(this).parent().siblings().children().next().slideUp(100);
+    $(this).parent().siblings().children().next(fall).slideUp(100);
     // $(this).siblings().next(fall).slideUp();
     $(this).toggleClass("current"),
             $collapse.not(this).removeClass("current");

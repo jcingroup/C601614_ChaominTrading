@@ -238,6 +238,7 @@
     <Content Include="Content\font\fontAwesome\fontawesome-webfont.svg" />
     <Content Include="Content\font\icomoon\icomoon.svg" />
     <Content Include="Content\font\themify-icons\themify.svg" />
+    <Content Include="Content\images\AboutUs\pic.jpg" />
     <Content Include="Content\images\footerBg.gif" />
     <Content Include="Content\images\footerBg2.gif" />
     <Content Include="Content\images\footerBg2.png" />
@@ -256,6 +257,14 @@
     <Content Include="Content\images\logoA_s.gif" />
     <Content Include="Content\images\logo_s.gif" />
     <Content Include="Content\images\product-list.jpg" />
+    <Content Include="Content\images\Products\pic-i1.jpg" />
+    <Content Include="Content\images\Products\pic-i2.jpg" />
+    <Content Include="Content\images\Products\pic-i3.jpg" />
+    <Content Include="Content\images\Products\pic1.jpg" />
+    <Content Include="Content\images\Products\pic2.jpg" />
+    <Content Include="Content\images\Products\pic3.jpg" />
+    <Content Include="Content\images\Products\pic4.jpg" />
+    <Content Include="Content\images\Products\pic5.jpg" />
     <Content Include="Content\js\common.js" />
     <Content Include="Content\js\tab.js" />
     <Content Include="favicon.ico" />
@@ -373,12 +382,19 @@
     <Content Include="Views\Base\ChangePW.cshtml" />
     <Content Include="Views\Products\list.cshtml" />
     <Content Include="Views\Products\content.cshtml" />
-    <Content Include="Views\News\list.cshtml" />
-    <Content Include="Views\News\content.cshtml" />
+    <Content Include="Views\News\News.cshtml" />
     <Content Include="Views\Products\Import_list.cshtml" />
     <Content Include="Views\Products\Export_list.cshtml" />
     <Content Include="Views\ContactUs\ContactUs.cshtml" />
     <Content Include="Views\AboutUs\AboutUs.cshtml" />
+    <Content Include="Views\Products\Export1.cshtml" />
+    <Content Include="Views\Products\Export2.cshtml" />
+    <Content Include="Views\Products\Export3.cshtml" />
+    <Content Include="Views\Products\Export4.cshtml" />
+    <Content Include="Views\Products\Export5.cshtml" />
+    <Content Include="Views\Products\Import1.cshtml" />
+    <Content Include="Views\Products\Import2.cshtml" />
+    <Content Include="Views\Products\Import3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

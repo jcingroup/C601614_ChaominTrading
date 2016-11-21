@@ -3,7 +3,10 @@
 // 本頁專用變數(覆蓋)
 // ------------------------------------------------------------
 $page:                 true;
+
 // $enable-ckb-rdo:       true;
+$figure-margin:        0 0 48px 0;
+$form-element-bg:      #fff;
 
 
 // import
@@ -22,7 +25,7 @@ $page:                 true;
 @import "vendor/print";     // 列印樣式
 
 @import "base/basic";
-// @import "base/form";
+@import "base/form";
 @import "base/table";
 @import "base/util";
 
@@ -34,6 +37,7 @@ $page:                 true;
 @import "_client/unit/btn";
 @import "_client/unit/list";
 @import "_client/unit/figure";
+@import "_client/unit/collapse";
 
 @import "_client/unit/classes"; // 建議放置在最後一個
 
@@ -77,7 +81,7 @@ $page:                 true;
 // == 產品
 // 小標
 .title-sort {
-    @extend .text-primary, .font-sp;
+    @extend .text-primary, .font-sp, .m-t-0;
     font-size: em(39);
     letter-spacing: 6px;
 
@@ -89,14 +93,16 @@ $page:                 true;
 
 // 滿版圖片列表
 .fullPic-list {
-    @extend .text-white, .m-x-0, .m-b-48;
+    @extend .text-white;
     display: inline-block;
     vertical-align: top;
     width: 32%;
+    height: 265px;
 
     &:not(:nth-of-type(3n)) { margin-right: 1.3%;}
 
-    @include mq(desktop,break(wider,-1)) { height: 260px; }
+    // @include mq(desktop,break(wider,-1)) { height: 270px; }
+    @include mq(wider) { height: 270px; }
 
     figcaption {
         @extend %figure-overlay;
@@ -104,10 +110,13 @@ $page:                 true;
         @include transition(background 0.35s);
     }
     img {
-        min-width: 100%;
+        max-width: 100%;
+        // min-width: 100%;
         min-height: 100%;
+        @include pos-center;
         @include transition(opacity 0.35s, transform 0.35s);
-        @include transform(scale(1.15));
+        // @include transition(opacity 0.35s);
+        // @include transform(scale(1.15));
     }
 
     h3 {
@@ -132,13 +141,13 @@ $page:                 true;
     }
 
     &:hover {
-        img { @include transform(scale(1)); }
+        img { @include transform(scale(1.15) translate(-43%, -43%)); } // @include prefix(filter, brightness(0.5))
         h3 { @include transform(translate3d(0,-20px,0)); }
         p {
             opacity: 1;
             @include transform(translate3d(0,0,0) scale(1));
         }
-        figcaption { background-color: rgba(#929E5F,.92); }
+        figcaption { background-color: rgba(#929E5F,.9); }
     }
 }
 
@@ -153,29 +162,71 @@ $page:                 true;
 .editor {
     @extend .text-left, .font-md;
 
-    th, td:first-of-type {
-        white-space: nowrap;
-    }
-    ul, ol {
-        @extend %list-unstyled, .text-secondary, .m-t-24;
-    }
-    li {
-        @extend .m-y-4;
-    }
+    th, td:first-of-type { white-space: nowrap; }
+    p:first-child { @extend .m-b-24; }
+    ul, ol { @extend %list-unstyled, .text-secondary, .p-l-0; }
+    li { @extend .m-y-4; }
     em {
         @extend .m-r-8;
         font-style: normal;
+        font-weight: bold;
+        border-radius: 3px;
     }
-    dl {
-        @extend .text-secondary, %clearfix, .m-b-4;
-    }
-    dt, dd {
-    }
+    dl { @extend .text-secondary, %clearfix, .m-b-4; }
     dt {
         @extend %float-l;
         width: 98px;
     }
-    dd {
-        overflow: hidden;
+    dd { overflow: hidden; }
+}
+
+// 最新消息
+.panel {
+    @extend .text-left, .p-a-12, .m-b-24;
+    border: 1px solid lighten($brand-secondary,50);
+    border-radius: 5px;
+
+    &:not(:last-child) { @extend .m-b-24; }
+
+    .collapse-title {
+        @extend .font-lg;
+
+        &:hover, &:active { color: $brand-primary; }
+
+        span {
+            @extend .font-md;
+            color: #999;
+        }
+    }
+    .collapse-content {
+        @extend .m-t-8, .p-t-8;
+        border-top: 1px solid lighten($brand-secondary,50);
+    }
+}
+
+// 聯絡我們
+iframe {
+    @include size(100%);
+}
+.map {
+    height: 350px;
+    border-radius: 5px;
+    box-shadow: 0 0 7px rgba($brand-secondary, .3);
+}
+.contact-form, .contact-list {
+    @extend .text-left, .m-t-48;
+}
+.contact-form {
+    .form-element { @extend .m-b-4; }
+}
+.contact-list {
+    @extend %list-unstyled;
+    // border-top: 1px dashed $brand-primary;
+
+    span { @extend .m-r-12; }
+
+    li {
+        @extend .p-y-8;
+        border-bottom: 1px dashed $brand-primary;
     }
 }

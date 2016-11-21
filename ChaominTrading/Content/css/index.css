@@ -207,13 +207,6 @@ template, [hidden] {
     page-break-after: avoid; } }
 /*      basic elements - reboot
 -----------------------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6, figure, blockquote, pre {
-  margin-top: 0; }
-
-p, ul, ol, li, dl, dt, dd {
-  margin: 0;
-  padding: 0; }
-
 html, body {
   text-align: center;
   height: 100%; }
@@ -259,6 +252,9 @@ a {
 
 img {
   vertical-align: middle; }
+
+h1 {
+  margin-top: 0; }
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
@@ -395,7 +391,8 @@ figcaption {
 figure {
   position: relative;
   overflow: hidden;
-  cursor: pointer; }
+  cursor: pointer;
+  margin: 0; }
   figure > a {
     z-index: 1;
     opacity: 0; }
@@ -429,7 +426,7 @@ figure {
 .m-a-0, figure {
   margin: 0; }
 
-.m-t-0 {
+.m-t-0, .site1 h5 {
   margin-top: 0; }
 
 .m-r-0 {
