@@ -29,9 +29,12 @@
                     <a href="~/ContactUs" class="@(ViewBag.BodyClass == "ContactUs" ? "current" : "")">聯絡我們</a>
                 </nav>
                 <nav class="top-nav">
-                    <a href='@Url.Action("SetLanguage")?L=en-US&A=index'>EN</a>
+                    @* <a href='@Url.Action("SetLanguage")?L=en-US&A=index'>EN</a>
                     <a href='@Url.Action("SetLanguage")?L=zh-TW&A=index'>中文</a>
-                    <a href='@Url.Action("SetLanguage")?L=ja-JP&A=index'>日文</a>
+                    <a href='@Url.Action("SetLanguage")?L=ja-JP&A=index'>日文</a> *@
+                    <a href='#'>EN</a>
+                    <a href='#'>中文</a>
+                    <a href='#'>日文</a>
                 </nav>
             </div><!-- wrap //-->
         </header>
