@@ -22,7 +22,7 @@ namespace ChaominTrading
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Index", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Products", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

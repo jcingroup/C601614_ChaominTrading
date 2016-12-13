@@ -38,8 +38,7 @@ $figcaption-full:        true;
 
 // main
 // ------------------------------------------------------------
-.video-full, video {
-}
+
 .video-full {
     @include size(100%);
     position: relative;
@@ -47,7 +46,7 @@ $figcaption-full:        true;
     overflow: hidden;
 }
 video {
-    opacity: .75;
+    // opacity: .9;
     min-width: 100%;
     min-height: 100%;
 }

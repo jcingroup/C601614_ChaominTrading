@@ -267,6 +267,16 @@
     <Content Include="Content\images\Products\pic5.jpg" />
     <Content Include="Content\js\common.js" />
     <Content Include="Content\js\tab.js" />
+    <Content Include="Content\noIE\bg.gif" />
+    <Content Include="Content\noIE\brow.gif" />
+    <Content Include="Content\noIE\brow2.gif" />
+    <Content Include="Content\noIE\brow3.gif" />
+    <Content Include="Content\noIE\brow4.gif" />
+    <Content Include="Content\noIE\browBg.gif" />
+    <Content Include="Content\noIE\browBg.png" />
+    <Content Include="Content\noIE\line.gif" />
+    <Content Include="Content\noIE\noIE.css" />
+    <Content Include="Content\noIE\noIE.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
