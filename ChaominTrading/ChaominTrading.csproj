@@ -246,6 +246,8 @@
     <Content Include="Content\images\headerBg.gif" />
     <Content Include="Content\images\icon-nav.gif" />
     <Content Include="Content\images\icon-title.gif" />
+    <Content Include="Content\images\index\bg.jpg" />
+    <Content Include="Content\images\index\bg.mp4" />
     <Content Include="Content\images\index\site1_bg.gif" />
     <Content Include="Content\images\index\site1_bg2.gif" />
     <Content Include="Content\images\index\site1_logo.png" />

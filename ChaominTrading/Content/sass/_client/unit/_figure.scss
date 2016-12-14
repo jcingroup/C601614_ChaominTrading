@@ -32,6 +32,7 @@ figure {
         @extend %figure-overlay;
         z-index: z(figure);
         opacity: 0;
+        background: #fff; // for ie bug
     }
 
     // RWD

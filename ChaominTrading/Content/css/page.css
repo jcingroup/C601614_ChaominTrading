@@ -804,7 +804,8 @@ figure {
   margin: 0 0 48px 0; }
   figure > a {
     z-index: 1;
-    opacity: 0; }
+    opacity: 0;
+    background: #fff; }
 
 .collapse-title {
   cursor: pointer;

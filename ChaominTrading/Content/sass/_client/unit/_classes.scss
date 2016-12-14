@@ -61,7 +61,9 @@
 .text-right  { text-align: right; }
 .text-center { text-align: center; }
 
-.font-sp    { font-family: $font-family-sp; }
+@if $font-family-sp {
+    .font-sp    { font-family: $font-family-sp; }
+}
 
 .font-tiny  { font-size: $font-size-xs; }  // 13px
 .font-sm    { font-size: $font-size-sm; }  // 14px

@@ -8,19 +8,21 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>朝敏菓菜 | 朝敏國際貿易</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="朝敏菓菜以安全蔬菜為目標，蔬果配送批發讓客戶買的安心吃的安心。堅持品質及服務熱忱，獲得許多客戶的支持及良好口碑，朝敏菓菜一直是企業眼中供應便宜、新鮮蔬果的好夥伴，蔬果配送範圍廣，蔬果配送皆以冷藏的車廂配送，以免造成蔬菜及食物的腐敗污染。">
+    <meta name="keywords" content="蔬果配送.蔬果批發.桃園蔬果配送.中壢蔬果配送.桃園蔬果批發.中壢蔬果批發">
+    <title>朝敏菓菜 | 朝敏國際貿易 :: 蔬果配送.蔬果批發.質優.新鮮.專業可靠.嚴格控管,Fresh Fruits & Vegetables</title>
     <link rel="stylesheet" href="~/Content/css/index.css">
 </head>
 <body>
-    <div class="video-full">
-        <video preload="auto" autoplay loop>
-            <source src="~/Content/images/index/bg.mp4" type="video/mp4">
-        </video>
-    </div>
+    <video id="video" class="video-full" preload="auto" poster="~/content/images/index/bg.jpg" autoplay loop playsinline>
+        <source src="~/Content/images/index/bg.mp4" type="video/mp4">
+    </video>
 
     <main>
         <figure class="site1">
-            <a href="//www.chaomin.com.tw"></a>
+            @* <a href="http://www.chaomin.com.tw/OutWeb/L_CT/index/index.asp"></a> *@
+            <a href="http://demo.jcin.com.tw/chaomin/OutWeb/L_CT/index/index.asp"></a>
             <figcaption>
                 <h1>朝敏果菜 - 優質．新鮮專業可靠．嚴格控管</h1>
                 <footer>
@@ -40,5 +42,14 @@
     </main>
 
     <footer class="copyright">&copy; 2013 - @DateTime.Now.Year Chaomin</footer>
+
+    <script>
+        var video = document.getElementById('video');
+        video.addEventListener('touchstart',function(){
+            video.play();
+        },false);
+        video.load();
+        video.play();
+    </script>
 </body>
 </html>

@@ -2,14 +2,34 @@
 
 // 本頁專用變數(覆蓋)
 // ------------------------------------------------------------
+$enable-RWD:             true;
+$states:                 false;
 $index:                  true;
 $img-index:              '../images/index';
 
-$body-bg:                #161A0D;
+$body-bg:                #769F35; // 161A0D
+$body-color:             #333;
+$font-family-sp:         false;
 $font-size-h3:           30px;
 $headings-color:         #fff;
 
 $figcaption-full:        true;
+
+$z-index: (
+    figure:             1
+);
+
+$gutter:                 16px;
+$gutters: (
+    0: (
+        x:   0,
+        y:   0
+    ),
+    8: (
+        x:   ($gutter / 2),
+        y:   ($gutter / 2)
+    )
+);
 
 
 
@@ -17,7 +37,6 @@ $figcaption-full:        true;
 // ------------------------------------------------------------
 // 本次專案專用變數
 @import "_client/color";
-@import "_client/settings";
 
 // 共用
 @import "helper/function";
@@ -26,7 +45,6 @@ $figcaption-full:        true;
 
 // 由此 output css
 @import "vendor/normalize"; // 重置復位
-@import "vendor/print";     // 列印樣式
 
 @import "base/basic";
 @import "base/util";
@@ -38,26 +56,33 @@ $figcaption-full:        true;
 
 // main
 // ------------------------------------------------------------
+body {
+    @include mq-max(break(phone-plus,-1)) {
+        position: relative;
+        min-height: 768px;
+    }
+}
 
 .video-full {
-    @include size(100%);
-    position: relative;
-    margin: auto;
-    overflow: hidden;
-}
-video {
-    // opacity: .9;
-    min-width: 100%;
-    min-height: 100%;
+    @include fixed(right 0 bottom 0);
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto;
+    z-index: -100;
+    background: url(#{$img-index}/bg.jpg) no-repeat;
+    background-size: cover;
+    opacity: .8;
 }
 
 main {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 1122px;
-    margin-left: -560px;
-    margin-top: -155px;
+    @include pos-center;
+    @include mq(wide) {
+        width: 1122px;
+    }
+    @include mq-max(break(phone-plus,-1)) {
+        width: 95%;
+        top: 60px;
+        @include transform(translate(-50%,0));
+    }
 }
 
 h1, h2 { @extend %text-hide, .m-b-0; }
@@ -73,6 +98,9 @@ figure {
         @include transform(translate(-5px,-10px));
         box-shadow: 10px 10px 15px rgba(0, 0, 0, .5);
     }
+    @include mq-max(break(phone-plus,-1)) {
+        width: 100%;
+    }
 }
 
 // 朝敏菓菜
@@ -83,15 +111,29 @@ figure {
 
     figcaption {
         background: url(#{$img-index}/site1_bg2.gif) 15px 72px no-repeat;
+
+        @include mq-max(phone) {
+            background-image: none;
+        }
     }
     h1 {
         background: url(#{$img-index}/site1_logo.png) 157px 0 no-repeat;
         height: 189px;
         margin-top: 16px;
+
+        @include mq-max(phone) {
+            background-position: center 0;
+            background-size: contain;
+            height: 165px;
+        }
     }
     h2 {
         background: url(#{$img-index}/site1_slogan.gif) center 0 no-repeat;
         height: 62px;
+        @include mq-max(break(phone-plus,-1)) {
+            background-size: contain;
+            width: 100%;
+        }
     }
     h5 {
         @extend .m-t-0;
@@ -99,18 +141,35 @@ figure {
         font-weight: bold;
         letter-spacing: 1px;
         margin-bottom: 5px;
+
+        @include mq-max(break(phone-plus,-1)) {
+            text-align: left;
+            padding-left: 2%;
+        }
     }
     small {
-        padding-left: 16px;
-        margin-left: 16px;
-        border-left: 1px solid #E5E5E5;
         color: #E5E5E5;
+
+        @include mq(phone-plus) {
+            border-left: 1px solid #E5E5E5;
+            padding-left: 16px;
+            margin-left: 16px;
+        }
+        @include mq-max(break(phone-plus,-1)) {
+            display: block;
+            margin-top: 5px;
+        }
     }
     footer {
         @extend .text-white, .p-y-8;
         @include absolute(bottom 0 left 0);
         background: #769F35;
         width: 100%;
+    }
+
+    @include mq-max(break(wide,-1)) {
+        float: none;
+        margin-bottom: 20px;
     }
 }
 // 朝敏貿易
@@ -120,17 +179,36 @@ figure {
     background: #fff url(#{$img-index}/site2_bg.gif) 0 0 no-repeat;
 
     h1 {
-        background: url(#{$img-index}/site2_logo.gif) 0 0 no-repeat;
+        background: url(#{$img-index}/site2_logo.gif) center 0 no-repeat;
         width: 302px;
         height: 139px;
         margin-top: 82px;
         margin-left: 15px;
+
+        @include mq-max(break(phone,+1)) {
+            background-size: contain;
+            width: 100%;
+            margin-left: 0;
+            margin-top: 70px;
+        }
     }
     h2 {
         background: url(#{$img-index}/site2_slogan.gif) center center no-repeat;
         width: 59px;
         height: 106px;
         @include absolute(top 11px right 21px);
+
+        @include mq-max(break(phone,+1)) {
+            top: auto;
+            bottom: 5px;
+            right: 10px;
+            background-size: contain;
+            height: 80px;
+        }
+    }
+
+    @include mq-max(break(wide,-1)) {
+        float: none;
     }
 }
 
@@ -138,8 +216,13 @@ figure {
     font-size: .8125em;
     color: #fff;
     letter-spacing: 2px;
-    position: absolute;
-    bottom: 8%; left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
+
+    @include pos-center(x);
+
+    @include mq(wide) {
+        bottom: 8%;
+    }
+    @include mq-max(break(wide,-1)) {
+        bottom: 8px;
+    }
 }
