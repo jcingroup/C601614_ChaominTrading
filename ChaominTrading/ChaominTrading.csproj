@@ -251,9 +251,13 @@
     <Content Include="Content\images\index\site1_bg.gif" />
     <Content Include="Content\images\index\site1_bg2.gif" />
     <Content Include="Content\images\index\site1_logo.png" />
+    <Content Include="Content\images\index\site1_logo_s.png" />
     <Content Include="Content\images\index\site1_slogan.gif" />
     <Content Include="Content\images\index\site2_bg.gif" />
+    <Content Include="Content\images\index\site2_bg2.gif" />
+    <Content Include="Content\images\index\site2_bg_s.gif" />
     <Content Include="Content\images\index\site2_logo.gif" />
+    <Content Include="Content\images\index\site2_logo_s.gif" />
     <Content Include="Content\images\index\site2_slogan.gif" />
     <Content Include="Content\images\logo.gif" />
     <Content Include="Content\images\logoA_s.gif" />

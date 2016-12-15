@@ -56,13 +56,6 @@ $gutters: (
 
 // main
 // ------------------------------------------------------------
-body {
-    @include mq-max(break(phone-plus,-1)) {
-        position: relative;
-        min-height: 768px;
-    }
-}
-
 .video-full {
     @include fixed(right 0 bottom 0);
     min-width: 100%; min-height: 100%;
@@ -74,14 +67,21 @@ body {
 }
 
 main {
+    @extend %clearfix;
+
+    width: 85%;
+    max-width: 1122px;
     @include pos-center;
-    @include mq(wide) {
-        width: 1122px;
+
+    @include mq-max(break(desktop,-1)) {
+        position: static;
+        margin: auto;
+        padding-top: 50px;
+
+        @include transform(translate(0,0));
     }
-    @include mq-max(break(phone-plus,-1)) {
-        width: 95%;
-        top: 60px;
-        @include transform(translate(-50%,0));
+    @include mq-max(break(tablet,-1)) {
+        width: 72%;
     }
 }
 
@@ -89,8 +89,10 @@ h1, h2 { @extend %text-hide, .m-b-0; }
 
 figure {
     @extend .m-a-0;
-    width: 530px;
+    width: 48%;
+    max-width: 530px;
     height: 310px;
+    border-radius: 4px;
 
     @include transition(transform .5s, box-shadow .7s);
 
@@ -98,8 +100,13 @@ figure {
         @include transform(translate(-5px,-10px));
         box-shadow: 10px 10px 15px rgba(0, 0, 0, .5);
     }
-    @include mq-max(break(phone-plus,-1)) {
+
+    @include mq-max(break(desktop,-1)) {
+        float: none !important;
         width: 100%;
+    }
+    @include mq-max(break(phone-plus,-1)) {
+        height: auto;
     }
 }
 
@@ -109,10 +116,14 @@ figure {
     border: 1px solid #769F35;
     background: #fff url(#{$img-index}/site1_bg.gif) 0 0 repeat-x;
 
+    @include mq-max(break(wide,-1)) {
+        margin-bottom: 20px;
+    }
+
     figcaption {
         background: url(#{$img-index}/site1_bg2.gif) 15px 72px no-repeat;
 
-        @include mq-max(phone) {
+        @include mq-max(break(tablet,-1)) {
             background-image: none;
         }
     }
@@ -121,18 +132,48 @@ figure {
         height: 189px;
         margin-top: 16px;
 
-        @include mq-max(phone) {
+        @include mq(desktop,break(wider,-1)) {
+            background-position: right 0;
+            margin-top: 14px;
+        }
+
+        @include mq-max(break(tablet,-1)) {
             background-position: center 0;
             background-size: contain;
-            height: 165px;
+            height: 150px;
+        }
+
+        @include mq-max(break(phone-plus,-1)) {
+            background-image: url(#{$img-index}/site1_logo_s.png);
+            margin-top: 0;
+        }
+
+        @include mq-max(mobile) {
+            height: 110px;
+        }
+    }
+    footer {
+        @extend .text-white, .p-y-8;
+        @include absolute(bottom 0 left 0 right 0);
+        background: #769F35;
+
+        @include mq-max(break(phone-plus,-1)) {
+            position: static;
         }
     }
     h2 {
         background: url(#{$img-index}/site1_slogan.gif) center 0 no-repeat;
         height: 62px;
-        @include mq-max(break(phone-plus,-1)) {
+
+        @include mq-max(break(wider,-1)) {
             background-size: contain;
             width: 100%;
+        }
+        @include mq-max(break(phone-plus,-1)) {
+            height: 38px;
+        }
+        @include mq-max(mobile) {
+            height: 23px;
         }
     }
     h5 {
@@ -143,53 +184,74 @@ figure {
         margin-bottom: 5px;
 
         @include mq-max(break(phone-plus,-1)) {
-            text-align: left;
-            padding-left: 2%;
+            display: none;
         }
     }
     small {
         color: #E5E5E5;
+        display: inline-block;
 
-        @include mq(phone-plus) {
+        @include mq(tablet) {
             border-left: 1px solid #E5E5E5;
             padding-left: 16px;
             margin-left: 16px;
         }
-        @include mq-max(break(phone-plus,-1)) {
+        @include mq-max(break(tablet,-1)) {
             display: block;
             margin-top: 5px;
         }
     }
-    footer {
-        @extend .text-white, .p-y-8;
-        @include absolute(bottom 0 left 0);
-        background: #769F35;
-        width: 100%;
-    }
-
-    @include mq-max(break(wide,-1)) {
-        float: none;
-        margin-bottom: 20px;
-    }
 }
+
 // 朝敏貿易
 .site2 {
     @extend %float-r;
     border: 3px solid #F0EFE9;
-    background: #fff url(#{$img-index}/site2_bg.gif) 0 0 no-repeat;
+    background: #fff url(#{$img-index}/site2_bg.gif) 0 bottom no-repeat;
+
+    @include mq-max(break(phone-plus,-1)) {
+        background-image: url(#{$img-index}/site2_bg_s.gif);
+        background-position: right 0;
+    }
+    @include mq-max(phone) {
+        background-image: none;
+    }
+
+    figcaption {
+        background: url(#{$img-index}/site2_bg2.gif) 25px bottom no-repeat;
+        height: 100%;
+        overflow: hidden;
+        padding-bottom: 55px;
+
+        @include mq-max(mobile) {
+            background-size: 50%;
+            padding-bottom: 40px;
+        }
+    }
 
     h1 {
         background: url(#{$img-index}/site2_logo.gif) center 0 no-repeat;
         width: 302px;
-        height: 139px;
-        margin-top: 82px;
+        height: 165px;
+        margin-top: 43px;
         margin-left: 15px;
 
-        @include mq-max(break(phone,+1)) {
+        @include mq-max(break(phone-plus,-1)) {
+            background-image: url(#{$img-index}/site2_logo_s.gif);
             background-size: contain;
-            width: 100%;
+            height: 126px;
+            margin-left: 5px;
+            margin-top: 15px;
+        }
+
+        @include mq-max(500) {
+            width: 80%;
+        }
+        @include mq-max(mobile) {
             margin-left: 0;
-            margin-top: 70px;
+            margin-top: 10px;
+            width: 100%;
+            height: 92px;
         }
     }
     h2 {
@@ -198,31 +260,34 @@ figure {
         height: 106px;
         @include absolute(top 11px right 21px);
 
-        @include mq-max(break(phone,+1)) {
+        @include mq-max(break(phone-plus,-1)) {
+            background-size: contain;
             top: auto;
             bottom: 5px;
             right: 10px;
-            background-size: contain;
-            height: 80px;
         }
-    }
 
-    @include mq-max(break(wide,-1)) {
-        float: none;
+        @include mq-max(550) {
+            height: 80px;
+            right: 5px;
+        }
+        @include mq-max(mobile) {
+           display: none;
+        }
     }
 }
 
 .copyright {
-    font-size: .8125em;
+    font-size: em(13);
     color: #fff;
     letter-spacing: 2px;
+    width: 100%;
 
-    @include pos-center(x);
+    @include absolute(bottom 8%);
 
-    @include mq(wide) {
-        bottom: 8%;
-    }
-    @include mq-max(break(wide,-1)) {
-        bottom: 8px;
+    @include mq(phone-plus,break(desktop,-1)) {
+        top: 730px;
+        bottom: auto;
+        padding-bottom: 10px;
     }
 }
