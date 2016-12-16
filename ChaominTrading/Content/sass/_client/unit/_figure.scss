@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
+$figure-style:            'inline-block' !default; // inline-block or float
 $figure-inline-hack:      false !default;
 $figure-effect:           false !default;
-$figure-margin:           0 !default;
 
 // common style
 %figure-overlay {
@@ -19,13 +19,15 @@ figure {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    margin: $figure-margin;
 
-    @if $figure-inline-hack {
-        margin-right: -4px;
-        &:first-child { margin-left: -4px; }
+    @if ($figure-style == 'inline-block') {
+        display: inline-block;
+        vertical-align: top;
     }
-
+    @if $figure-inline-hack {
+        margin-left: -4px;
+        // &:first-child { margin-left: -4px; }
+    }
     @if $figure-effect { @include transition($figure-effect) }
 
     > a {
@@ -37,18 +39,20 @@ figure {
 
     // RWD
     @if $enable-RWD {
-        @include mq-max(break(desktop, -1)) {
-            float: none;
-            display: inline-block;
-        }
-        @include mq-max(tablet) {
-            width: 48%;
-            max-width: none;
-            margin: 3px;
-            margin-bottom: 15px;
-        }
-        @include mq-max(phone) {
-            width: 100%;
-        }
+        // @if ($figure-style == 'float') {
+        //     @include mq-max(break(desktop, -1)) {
+        //         float: none;
+        //         display: inline-block;
+        //     }
+        // }
+        // @include mq-max(break(desktop, -1)) {
+        //     width: 48%;
+        //     max-width: none;
+        //     margin: 3px;
+        //     margin-bottom: 15px;
+        // }
+        // @include mq-max(phone) {
+        //     width: 100%;
+        // }
     }
 }

@@ -26,15 +26,15 @@ $collapse.click(function () {
 });
 
 // 行動裝置的主選單
-$menuLeft = $('#menu');
 $trigger = $('.mobile-trigger');
+$menuClose = $('.mobile-close');
 
 $trigger.click(function() {
     $(this).toggleClass('active');
-    $('body').toggleClass('push');
+    $('body').toggleClass('overlay');
 });
-$('.toggle').click(function() {
-    $('body').removeClass('push');
+$menuClose.click(function() {
+    $('body').removeClass('overlay');
 });
 
 // 行動裝置的產品分類選單

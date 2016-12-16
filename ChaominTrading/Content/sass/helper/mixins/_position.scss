@@ -24,21 +24,21 @@
 // $vertical = 垂直
 @mixin pos-center($dir: all) {
     @if $dir == all {
-        @include mixin-dryer(absAll) {
+        // @include mixin-dryer(absAll) {
             @include absolute(left 50% top 50%);
             @include transform(translate(-50%,-50%));
-        }
+        // }
     }
     @if $dir == horizontal or $dir == x {
-        @include mixin-dryer(absX) {
+        // @include mixin-dryer(absX) {
             @include absolute(left 50%);
             @include transform(translateX(-50%));
-        }
+        // }
     }
     @if $dir == vertical or $dir == y {
-        @include mixin-dryer(absY) {
+        // @include mixin-dryer(absY) {
             @include absolute(top 50%);
             @include transform(translateY(-50%));
-        }
+        // }
     }
 }

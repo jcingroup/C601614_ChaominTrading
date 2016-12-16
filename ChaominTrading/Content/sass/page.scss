@@ -4,8 +4,6 @@
 // ------------------------------------------------------------
 $page:                 true;
 
-// $enable-ckb-rdo:       true;
-$figure-margin:        0 0 48px 0;
 $form-element-bg:      #fff;
 
 
@@ -94,15 +92,31 @@ $form-element-bg:      #fff;
 // 滿版圖片列表
 .fullPic-list {
     @extend .text-white;
-    display: inline-block;
-    vertical-align: top;
     width: 32%;
-    height: 265px;
+    height: 250px;
+    margin: 0 0 48px 0;
 
-    &:not(:nth-of-type(3n)) { margin-right: 1.3%;}
+    &:not(:nth-of-type(3n)) {
+        margin-right: 1.3%;
 
-    // @include mq(desktop,break(wider,-1)) { height: 270px; }
-    @include mq(wider) { height: 270px; }
+        @include mq(desktop,break(wide,-1)) {
+            margin-right: 7px;
+        }
+    }
+
+    @include mq(wider) {
+        height: 280px;
+    }
+    @include mq-max(break(desktop, -1)) {
+        width: 48%;
+        margin: 0 auto 15px !important;
+    }
+    @include mq-max(break(phone-plus,-1)) {
+        width: 100%;
+    }
+    @include mq-max(phone) {
+        height: auto;
+    }
 
     figcaption {
         @extend %figure-overlay;
@@ -110,13 +124,22 @@ $form-element-bg:      #fff;
         @include transition(background 0.35s);
     }
     img {
-        max-width: 100%;
-        // min-width: 100%;
-        min-height: 100%;
+        min-width: 100%;
+        // min-height: 100%;
+        max-height: 100%;
+        max-width: none;
         @include pos-center;
         @include transition(opacity 0.35s, transform 0.35s);
-        // @include transition(opacity 0.35s);
-        // @include transform(scale(1.15));
+
+        @include mq-max(break(phone-plus,-1)) {
+            max-width: 100%;
+            max-height: none;
+        }
+        @include mq-max(phone) {
+            height: auto;
+            position: static;
+            @include transform(translate(0,0));
+        }
     }
 
     h3 {
@@ -127,7 +150,7 @@ $form-element-bg:      #fff;
 
         [lang="en"] & { @extend .font-sp; }
 
-        @include transition(transform 0.35s);
+        @include transition(transform 0.35s, opacity .5s);
         @include transform(translate3d(0,0,0));
     }
 
@@ -138,11 +161,28 @@ $form-element-bg:      #fff;
         font-size: em(15);
         @include transition(opacity 0.35s, transform 0.35s);
         @include transform(translate3d(0,-20px,0) scale(1.1));
+
+        @include mq-max(phone) {
+            margin: 12px 10px 0;
+            border: none;
+        }
     }
 
     &:hover {
-        img { @include transform(scale(1.15) translate(-43%, -43%)); } // @include prefix(filter, brightness(0.5))
-        h3 { @include transform(translate3d(0,-20px,0)); }
+        img {
+            @include transform(scale(1.15) translate(-43%, -43%));
+
+            @include mq-max(phone) {
+                @include transform(scale(1.15));
+            }
+        } // @include prefix(filter, brightness(0.5))
+        h3 {
+            @include transform(translate3d(0,-20px,0));
+
+            @include mq-max(mobile) {
+                opacity: 0;
+            }
+        }
         p {
             opacity: 1;
             @include transform(translate3d(0,0,0) scale(1));

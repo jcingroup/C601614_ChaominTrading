@@ -174,14 +174,19 @@ html {
 
 @-moz-viewport {
   width: device-width; }
+
 @-ms-viewport {
   width: device-width; }
+
 @-o-viewport {
   width: device-width; }
+
 @-webkit-viewport {
   width: device-width; }
+
 @viewport {
   width: device-width; }
+
 body {
   font-family: \5FAE\8EDF\6B63\9ED1\9AD4, "微軟正黑體", "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -250,7 +255,7 @@ hr {
   border-top: 1px solid #F1F1F1; }
 
 p {
-  margin-bottom: 0; }
+  margin: 0; }
   p + p {
     margin-top: 1rem; }
 
@@ -344,24 +349,12 @@ figure {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  margin: 0; }
+  display: inline-block;
+  vertical-align: top; }
   figure > a {
     z-index: 1;
     opacity: 0;
     background: #fff; }
-  @media (max-width: 61.1875em) {
-    figure {
-      float: none;
-      display: inline-block; } }
-  @media (max-width: 48em) {
-    figure {
-      width: 48%;
-      max-width: none;
-      margin: 3px;
-      margin-bottom: 15px; } }
-  @media (max-width: 30em) {
-    figure {
-      width: 100%; } }
 
 .block {
   display: block; }
@@ -548,14 +541,13 @@ figure {
 
 main {
   width: 85%;
-  max-width: 1122px; }
-  main {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%); }
+  max-width: 1122px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
   @media (max-width: 61.1875em) {
     main {
       position: static;
@@ -616,7 +608,7 @@ figure {
       .site1 h1 {
         background-image: url(../images/index/site1_logo_s.png);
         margin-top: 0; } }
-    @media (max-width: 23.75em) {
+    @media (max-width: 25.75em) {
       .site1 h1 {
         height: 110px; } }
   .site1 footer {
@@ -638,7 +630,7 @@ figure {
     @media (max-width: 39.9375em) {
       .site1 h2 {
         height: 38px; } }
-    @media (max-width: 23.75em) {
+    @media (max-width: 25.75em) {
       .site1 h2 {
         height: 23px; } }
   .site1 h5 {
@@ -677,7 +669,7 @@ figure {
     height: 100%;
     overflow: hidden;
     padding-bottom: 55px; }
-    @media (max-width: 23.75em) {
+    @media (max-width: 25.75em) {
       .site2 figcaption {
         background-size: 50%;
         padding-bottom: 40px; } }
@@ -697,7 +689,7 @@ figure {
     @media (max-width: 31.25em) {
       .site2 h1 {
         width: 80%; } }
-    @media (max-width: 23.75em) {
+    @media (max-width: 25.75em) {
       .site2 h1 {
         margin-left: 0;
         margin-top: 10px;
@@ -720,7 +712,7 @@ figure {
       .site2 h2 {
         height: 80px;
         right: 5px; } }
-    @media (max-width: 23.75em) {
+    @media (max-width: 25.75em) {
       .site2 h2 {
         display: none; } }
 

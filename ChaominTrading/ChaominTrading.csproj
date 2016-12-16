@@ -337,7 +337,6 @@
     <Content Include="Content\sass\vendor\_magnific.scss" />
     <Content Include="Content\sass\vendor\_normalize.scss" />
     <Content Include="Content\sass\vendor\_print.scss" />
-    <Content Include="Content\sass\_client\unit\_animate.scss" />
     <Content Include="Content\sass\_client\unit\_banner.scss" />
     <Content Include="Content\sass\_client\unit\_breadcrumb.scss" />
     <Content Include="Content\sass\_client\unit\_btn.scss" />
@@ -354,8 +353,6 @@
     <Content Include="Content\sass\_client\unit\_list.scss" />
     <Content Include="Content\sass\_client\unit\_modal.scss" />
     <Content Include="Content\sass\_client\unit\_nav.scss" />
-    <Content Include="Content\sass\_client\unit\_slider.scss" />
-    <Content Include="Content\sass\_client\unit\_tab.scss" />
     <Content Include="Content\sass\_client\unit\_tooltip.scss" />
     <Content Include="Content\sass\_client\_color.scss" />
     <Content Include="Content\sass\_client\_layout.scss" />

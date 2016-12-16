@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="">
     <meta name="description" content="">
     <title>朝敏國際貿易::@ViewBag.Title</title>
@@ -20,20 +21,22 @@
                 <h1 class="logo" onclick="location.href='@Url.Content("~/index")'" title="回首頁" tabindex="-1">
                     @Resources.Res.System_FrontName
                 </h1>
-                <nav id="menu" class="navbar">
-                    <a href="~/AboutUs" class="@(ViewBag.BodyClass == "AboutUs" ? "current" : "")">關於我們</a>
-                    <a href="~/Products/Import_list" class="@(ViewBag.BodyClass == "Import" ? "current" : "")">進口</a>
-                    <a href="~/Products/Export_list" class="@(ViewBag.BodyClass == "Export" ? "current" : "")">出口</a>
-                    <a href="~/News" class="@(ViewBag.BodyClass == "News" ? "current" : "")">最新消息</a>
-                    <a href="~/ContactUs" class="@(ViewBag.BodyClass == "ContactUs" ? "current" : "")">聯絡我們</a>
-                </nav>
+                <button class="mobile-trigger icon-menu" title="主選單"></button>
+                <div id="menu" class="navbar">
+                    <button class="mobile-close" title="關閉主選單">&#10005;</button>
+                    <nav>
+                        <a href="~/AboutUs" class="@(ViewBag.BodyClass == "AboutUs" ? "current" : "")">關於我們</a>
+                        <a href="~/Products/Import_list" class="@(ViewBag.BodyClass == "Import" ? "current" : "")">進口</a>
+                        <a href="~/Products/Export_list" class="@(ViewBag.BodyClass == "Export" ? "current" : "")">出口</a>
+                        <a href="~/News" class="@(ViewBag.BodyClass == "News" ? "current" : "")">最新消息</a>
+                        <a href="~/ContactUs" class="@(ViewBag.BodyClass == "ContactUs" ? "current" : "")">聯絡我們</a>
+                    </nav>
+                </div>
                 <nav class="top-nav">
-                    @* <a href='@Url.Action("SetLanguage")?L=en-US&A=index'>EN</a>
+                    <a href='@Url.Action("SetLanguage")?L=en-US&A=index'>EN</a>
                     <a href='@Url.Action("SetLanguage")?L=zh-TW&A=index'>中文</a>
-                    <a href='@Url.Action("SetLanguage")?L=ja-JP&A=index'>日文</a> *@
-                    <a href='#'>EN</a>
-                    <a href='#'>中文</a>
-                    <a href='#'>日文</a>
+                    @* <a href='@Url.Action("SetLanguage")?L=ja-JP&A=index'>日文</a>
+                    <a href='#'>日文</a> *@
                 </nav>
             </div><!-- wrap //-->
         </header>
@@ -52,9 +55,9 @@
     </div><!-- wrapper //-->
 
     <footer id="footer">
-        <div class="wrap row-x-0">
-            <section class="col-4 foot-contact">
-                <header class="logo-s">朝敏國際貿易</header>
+        <div class="wrap">
+            <section class="foot-contact">
+                <header class="logo-s">朝敏國際貿易<small>Vegetables frults firm international trading</small></header>
                 <address>
                     <h6>桃園縣中壢市中正路1451號(後方)</h6>
                     <p><em>TEL:</em>03-280-5358</p>
@@ -63,7 +66,7 @@
                 </address>
             </section>
 
-            <section class="col-3 foot-nav">
+            <section class="foot-nav">
                 <header class="font-sp">NAVIGATION</header>
                 <nav>
                     <a href="~/AboutUs">關於我們</a>
@@ -83,7 +86,7 @@
     </footer><!-- footer -->
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/js")
+    <script src="~/Content/js/common.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

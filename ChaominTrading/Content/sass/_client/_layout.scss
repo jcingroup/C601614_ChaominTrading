@@ -38,7 +38,7 @@
     @extend %container, %container-fluid;
 }
 
-#header, #footer, #main {
+#footer, #main {
     @extend %container-fluid;
     position: relative;
 }
@@ -59,7 +59,12 @@
     z-index: z(header);
 
     // 本次專案
+    position: relative;
     border-bottom: 3px solid #F0EFE9;
+
+    @include mq-max(phone) {
+        height: 85px;
+    }
 
     .wrap {
         position: relative;
@@ -69,6 +74,18 @@
         @include mq-max(break(wide,-1)) {
             background-position: 38% -172px;
         }
+        @include mq-max(break(desktop,-1)) {
+            background-position: 63% -172px;
+        }
+        @include mq(phone-plus,break(tablet,-1)) {
+            background-position: 82% -172px;
+        }
+        @include mq-max(break(phone-plus,-1)) {
+            background-position: 230px -90px;
+        }
+        @include mq-max(phone) {
+            background-image: none;
+        }
     }
 }
 
@@ -77,14 +94,24 @@
     z-index: z(logo);
 
     @if $logo-img {
-        @include text-pic($logo-img, nth($logo-size,1), nth($logo-size,2), $position:center);
+        @include text-pic($logo-img, nth($logo-size,1), nth($logo-size,2));
     }
 
     // 本次專案
     @extend %float-l;
     margin-top: 34px;
-    // position: relative;
-    // top: 35px;
+
+    @include mq-max(break(desktop,-1)) {
+        margin-top: 28px;
+    }
+    @include mq-max(phone) {
+        margin-top: 4px;
+    }
+    @include mq-max(mobile) {
+        background-size: contain;
+        width: 210px;
+        margin-top: 10px;
+    }
 }
 
 
@@ -98,14 +125,30 @@
     z-index: z(footer);
 
     // 本次專案
-    @extend .p-t-32;
+    @extend .p-y-32;
     border-top: 3px solid #BBDB83;
 
+    @include mq-max(break(desktop,-1)) {
+        background-position: 80% -25px;
+    }
+    @include mq-max(tablet) {
+        background-position: 90% -40px;
+    }
+    @include mq-max(phone-plus) {
+        background-position: 91% 80px;
+    }
+    @include mq-max(break(phone,-1)) {
+        background-image: none;
+    }
+
+    .wrap { position: relative; }
+
+    // 甘藍菜
     @include el(before) {
         @include absolute(top -41px left 25%);
+        background: url(#{$img-path}/footerBg2.gif) 0 0 no-repeat;
         width: 204px;
         height: 41px;
-        background: url(#{$img-path}/footerBg2.png) 0 0 no-repeat;
     }
 
     a {
@@ -115,8 +158,14 @@
 }
 
 .copyright {
-    @extend %float-r, .m-t-48;
     font-size: em(11);
+
+    @include absolute(right 0 top 48px);
+
+    @include mq-max(break(phone,-1)) {
+        top: auto;
+        bottom: 0;
+    }
 
     a {
         @extend .m-b-4;
@@ -127,12 +176,31 @@
 
 // 貿易logo
 .logo-s {
-    @include text-pic('logo_s.gif', 374px, 36px);
-    display: block;
+    font-size: em(34);
+    font-weight: 800;
+    line-height: 1.01;
+    color: #BBDB83;
+
+    small {
+        @include text-pic('logo_s.gif', 181px, 29px);
+        display: inline-block;
+        vertical-align: top;
+        @extend .m-t-4;
+    }
 }
 
 .foot-contact {
-    @extend .text-left;
+    @extend %float-l, .text-left;
+
+    width: 34%;
+
+    @include mq-max(break(desktop,-1)) {
+        width: 38%;
+    }
+    @include mq-max(tablet) {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 
     address, em { font-style: normal; }
     address {
@@ -142,6 +210,10 @@
         @extend .m-y-12;
         color: $footer-color;
         letter-spacing: 1px;
+
+        @include mq-max(tablet) {
+            margin-bottom: 8px !important;
+        }
     }
     p + p { @extend .m-t-4; }
     em {
@@ -152,12 +224,17 @@
 }
 
 .foot-nav {
-    @extend .text-left;
+    @extend %float-l, .text-left;
+
     header {
         @extend .font-xxl, .m-b-16;
         color: #BBDB83;
         letter-spacing: 4px;
         line-height: 1;
+
+        @include mq-max(tablet) {
+            margin-bottom: 8px !important;
+        }
     }
     a {
         display: block;
@@ -165,6 +242,11 @@
 
         &:not(:last-child) {
             @extend .m-b-8;
+        }
+
+        @include mq(break(mobile,-1),tablet) {
+            display: inline-block;
+            width: 30%;
         }
     }
 }

@@ -3,49 +3,42 @@
 @mixin mobile-nav($select,$Break) {
     ##{$select} {
         @include mq-max($Break) {
-            @include fixed(top 0);
-            overflow-y: auto;
             z-index: z(overlay);
-
+            position: fixed;
             background: $mobile-menu-bg;
-            width: $mobile-menu-width;
-            height: 100%;
-
-            @content;
+            @include transition($mobile-transition);
 
             // 推拉樣式
             @if $mobile-menu-style == 'push' {
+                top: 0; bottom: 0;
+                overflow-y: auto;
+                width: $mobile-menu-width;
                 left: -$mobile-menu-width;
+
                 text-align: left;
 
-                @include transition(left .35s);
-
-                .#{$mobile-menu-style} & { left: 0; }
-
-                #{$nav-root} {
-                    color: #fff;
-                    font-size: em(18px);
-                    padding: $gutter/2 $gutter;
+                .#{$mobile-menu-style} & {
+                    left: 0;
                 }
             }
 
             // 全版樣式
             @else if $mobile-menu-style == 'overlay' {
-                overflow-x: hidden;
                 visibility: hidden;
-                top: -50%;
-                left: 0;
                 opacity: 0;
-                padding: 3% 0;
 
-                @include transition(top .5s, opacity 1s);
+                @include size(100%);
+                @include diy-animation(swing, 0.5s) {
+                    0% { @include transform(rotateY(90deg)); opacity: 0; }
+                    100% { @include transform(rotateY(0)); opacity: 1; }
+                }
 
                 .#{$mobile-menu-style} & {
-                    top: 0;
                     visibility: visible;
                     opacity: 1;
                 }
             }
+            @content;
         }
     }
     @if $mobile-menu-style == 'push' {
@@ -55,26 +48,14 @@
             position: relative;
             left: 0;
         }
-        .push {
+        .#{$mobile-menu-style} {
             left: $mobile-menu-width;
             overflow-y: hidden;
         }
     }
     @else if $mobile-menu-style == 'overlay' {
-        .overlay {
+        .#{$mobile-menu-style} {
             overflow: hidden;
         }
-    }
-}
-
-// 行動版主選單
-@mixin navBar-trigger($select,$Break) {
-    .#{$select} {
-        display: none;
-        padding: 0;
-        cursor: pointer;
-        overflow: hidden;
-        @include mq-max($Break) { display: block; }
-        @content;
     }
 }

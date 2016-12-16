@@ -16,8 +16,10 @@ $nav-color:             #000 !default;
 // 行動版
 $mobile-menu-bk:        'desktop' !default;     // 從()螢幕寬度以下開始出現行動版選單
 $mobile-menu-style:     'overlay' !default;
-$mobile-menu-bg:        #424242 !default;
+$mobile-menu-bg:        rgba(#fff,.95) !default;
 $mobile-menu-width:     100% !default;
+$mobile-close:          'mobile-close' !default;
+$mobile-transition:     'transform .3s, opacity 1s' !default; // push - left .35s; overlay - opacity 1s
 
 // 當前頁選單
 @function page($current-item, $map: $menu-item) {
@@ -29,7 +31,7 @@ $mobile-menu-width:     100% !default;
     }
     @return $current;
 }
-$current: page('&:nth-child');
+$current: page('&:nth-of-type');
 
 
 // output
@@ -41,8 +43,8 @@ $current: page('&:nth-child');
 }
 
 #menu, .top-nav {
-    left: 600px;
-    @include mq(wider) { left: 660px; }
+    @include absolute(left 48%);
+    @include mq(wider) { left: 635px; }
 }
 
 #menu {
@@ -50,16 +52,13 @@ $current: page('&:nth-child');
 
     // 本次專案
     @extend .text-left;
-    @include absolute(top 73px);
-    // @extend %float-l, .text-left;
-    // margin-top: 73px;
-    // margin-left: 25%;
-    // @include mq(wider) { margin-left: 28%; }
-    // @include mq-max(desktop) {
-    //     float: right;
-    //     margin-left: 0;
-    // }
-    @include mq-max(break(wide,-1)) { left: auto; right: $gutter*2; }
+
+    top: 73px;
+
+    @include mq-max(wide) {
+        left: auto;
+        right: 0;
+    }
 
     #{$nav-root} {
         @if $nav-color     { color: $nav-color; }
@@ -77,7 +76,7 @@ $current: page('&:nth-child');
 
         &:not(:last-child) { @extend .m-r-48; }
 
-        @include el(before, $content:'\e90c') {
+        @include el(before, $content: unicode('e90c')) {
             @include pos-center(x);
             @include transition(top .35s, opacity .6s);
             font-family: 'icomoon';
@@ -99,20 +98,29 @@ $current: page('&:nth-child');
 
 // == top-nav
 .top-nav {
-    @include absolute(top 28px);
-    @include mq-max(break(wide,-1)) {
+    top: 28px;
+
+    @include mq-max(wide) {
         left: auto;
-        right: 454px;
+        right: 0;
+    }
+    @include mq-max(break(#{$mobile-menu-bk},-1)) {
+        top: 5px;
+        right: $gutter;
     }
 
-    // @include mq(wider) { left: 660px; }
-    // @include mq-max(desktop) { left: 424px; }
-
     a {
-        @extend .m-r-12;
         color: #828282;
         font-size: em(12);
         letter-spacing: 2px;
+
+        &:not(:last-child) {
+            @extend .m-r-12;
+
+            @include mq-max(mobile) {
+                margin-right: 3px !important;
+            }
+        }
 
         &:hover, &:active {
             color: $brand-primary;
@@ -122,8 +130,99 @@ $current: page('&:nth-child');
 
 // == mobile-nav
 @if $enable-RWD {
-    @include mobile-nav('menu',break(#{$mobile-menu-bk},-1));
-    @include navBar-trigger('mobile-trigger',break(#{$mobile-menu-bk},-1));
+    // 行動版面的選單
+    @include mobile-nav('menu',break(#{$mobile-menu-bk},-1)) {
+        top: 0; left: 0;
+
+        #{$nav-root} {
+            font-size: em(26);
+            line-height: 48px;
+            display: block;
+            width: 100%;
+            border: 1px solid lighten(#D0BEA6,10);
+            border-radius: 3px;
+
+            &:not(:last-child) {
+                margin-right: 0 !important;
+                margin-bottom: $gutter;
+            }
+
+            &::before { display: none; }
+
+            &:hover, &:active {
+                background: lighten(#B9C85D,25);
+                color: $nav-color;
+            }
+            &.current {
+                background: #B9C85D;
+                color: #fff;
+            }
+        }
+
+        nav {
+            @include pos-center;
+            text-align: center;
+            width: 60%;
+        }
+    }
+
+    %mobile-btn {
+        background: none;
+        border: none;
+        outline: none;
+        padding: 0;
+        @include transition(all .3s);
+    }
+
+    // 顯示行動版面的按鈕
+    .mobile-trigger {
+        display: none;
+        overflow: hidden;
+
+        @include mq-max(break(#{$mobile-menu-bk},-1)) {
+            display: block;
+        }
+
+        // 本次專案
+        @extend %mobile-btn, .text-primary;
+        @include absolute(right 10px top 35px);
+
+        font-size: em(50);
+        line-height: 1.01;
+
+        &:hover, &:active {
+            color: lighten($brand-secondary,10);
+        }
+
+        .#{$mobile-menu-style} & {
+            opacity: 0;
+        }
+
+        @include mq-max(phone) {
+            top: 25px;
+            font-size: em(43);
+        }
+    }
+
+    // 關閉行動版面的按鈕
+    @if $mobile-close {
+        .#{$mobile-close} {
+            display: none;
+
+            .#{$mobile-menu-style} & {
+                @extend %mobile-btn, .text-primary;
+
+                @include absolute(right 2.5% top 1%);
+
+                display: block;
+                font-size: em(40);
+
+                &:hover, &:active {
+                    color: lighten($brand-primary,10);
+                }
+            }
+        }
+    }
 }
 
 // == sub-nav

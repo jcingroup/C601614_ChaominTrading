@@ -45,9 +45,9 @@
 
     <script>
         var video = document.getElementById('video');
-        // video.addEventListener('touchstart',function(){
-        //     video.play();
-        // },false);
+        video.addEventListener('touchend',function(){
+            video.play();
+        },false);
         video.load();
         video.play();
     </script>
