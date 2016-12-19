@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "PRODUCTS SPECIES:美生菜";
+    ViewBag.BodyClass = "Export";
+    ViewBag.breadCrumb = "美生菜";
+}
+
+@section breadCrumb {
+    <li><a href="~/Products/Export_list">出口</a></li>
+}
+
+<h1 class="title"><span>@ViewBag.breadCrumb</span></h1>
+
+<section class="row row-x-0 m-b-48">
+    <div class="col-6 product-info">
+        <h2 class="title-sort">DESCRIPTION</h2>
+        <article class="editor m-t-24">
+            @* 簡介-編輯器(簡單版編輯器-不可設定顏色與上傳圖) *@
+            <dl>
+                <dt>季節：</dt>
+                <dd>冬季。</dd>
+            </dl>
+            <dl>
+                <dt>產品特性：</dt>
+                <dd>菊科萵苣屬，葉綠色包被成球形，半結球狀，開黃色小花。</dd>
+            </dl>
+            <dl>
+                <dt>儲存溫度：</dt>
+                <dd>0 ~ 2度</dd>
+            </dl>
+            <dl>
+                <dt>保存時間：</dt>
+                <dd>30天</dd>
+            </dl>
+            <dl>
+                <dt>相對溼度：</dt>
+                <dd>90 ~ 100%</dd>
+            </dl>
+            <dl>
+                <dt>主產地區：</dt>
+                <dd>雲林縣、彰化縣。</dd>
+            </dl>
+            <dl>
+                <dt>產期：</dt>
+                <dd>11月至翌年2月盛產、10月及3~4月淡產期。</dd>
+            </dl>
+            <dl>
+                <dt>真空預冷法：</dt>
+                <dd>將蔬菜放入密閉倉體中，再迅速將其中之空氣抽出，使蔬菜表面水份急速蒸發，溫度迅速下降至6 ℃ 左右；可以減緩蔬菜呼吸速率，延長貯蕆壽命並抑止病原繁殖。</dd>
+            </dl>
+            <dl>
+                <dt>營養成分：</dt>
+                <dd>蛋白質、脂質、醣質、纖維、灰質、鈣、磷、鐵、維他命A、B1、B2、C、菸鹼酸、熱量及微量元素如鎂、鉀、矽及硫等。</dd>
+            </dl>
+            <dl>
+                <dt>選購要領：</dt>
+                <dd>葉片完整無病斑，翠綠鮮脆，葉脈扁平者佳。</dd>
+            </dl>
+        </article>
+    </div>
+    <div class="col-6 product-pic">
+        <img src="~/Content/images/product-list.jpg" alt="圖片">
+    </div>
+</section>
+
+@* <section class="editor m-b-48 table-rwd">
+    @* 編輯器(可上傳圖)
+    <table class="full">
+        <tr>
+            <th>NO. 1</th>
+            <td>F1 CHAU CHIOU (初秋)</td>
+            <td>This extra early maturity can be harvestedin 55 days after transplanting.</td>
+        </tr>
+        <tr>
+            <th>NO. 2</th>
+            <td>F1 DA HUA (NO.420) (大華)</td>
+            <td>This early maturity variety resembles to K-Y, but wrap early.  Its output is better than K-Y.  Head is semi-flat. It weighs about 3kgs. Can be harvested in 60-65 days after transplanting. </td>
+        </tr>
+        <tr>
+            <th>NO. 3</th>
+            <td>F1 SHIN WEI (新威)</td>
+            <td>Heads are round shape, uniformity, sturdy.  Good resistance to splitting.</td>
+        </tr>
+    </table>
+</section> *@
+
+<footer><a href="javascript:history.back()" class="btn icon-reply">回列表</a></footer>
