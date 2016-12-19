@@ -1,8 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using DotWeb.Controller;
+using System.Web.Mvc;
 
 namespace ChaominTrading.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductsController : WebUserController
     {
         // GET: Home
         public ActionResult Index()

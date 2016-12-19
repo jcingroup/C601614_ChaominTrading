@@ -222,6 +222,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DotWeb.Controller.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -408,6 +409,8 @@
     <Content Include="Views\Products\Import1.cshtml" />
     <Content Include="Views\Products\Import2.cshtml" />
     <Content Include="Views\Products\Import3.cshtml" />
+    <Content Include="Views\ContactUs\ContactUs.zh-TW.cshtml" />
+    <Content Include="Views\ContactUs\ContactUs.ja-JP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "聯絡我們";
+    ViewBag.BodyClass = "ContactUs";
+    ViewBag.breadCrumb = "聯絡我們";
+}
+
+<h1 class="title"><span>@ViewBag.breadCrumb JAPN</span></h1>
+
+<div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28933.871891184073!2d121.17300366079162!3d24.97516367863908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823c33f82a1e9%3A0x9465c214f0cd66c9!2zMzIw5qGD5ZyS5biC5Lit5aOi5Y2A5Lit5q2j6LevMTQ1MS0x6Jmf!5e0!3m2!1szh-TW!2stw!4v1445316011927" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+
+<section class="row row-x-0">
+    <form action="" class="contact-form col-sm-6">
+        <label for="name" class="form-element-label">姓名</label>
+        <input id="name" type="text" class="form-element">
+
+        <label for="tel" class="form-element-label">電話</label>
+        <input id="tel" type="text" class="form-element">
+
+        <label for="email" class="form-element-label">E-mail</label>
+        <input id="email" type="text" class="form-element">
+
+        <label class="form-element-label">內容</label>
+        <textarea rows="5" class="form-element"></textarea>
+
+        <button class="btn m-t-24">確認送出</button>
+    </form>
+
+    <ul class="contact-list col-sm-6">
+        <li><span>ADD:</span>桃園縣中壢市中正路1451號(後方)</li>
+        <li><span>TEL:</span>03-280-5358</li>
+        <li><span>FAX:</span>03-280-6918</li>
+        <li><span>E-mail:</span><a href="mailto:chaomintrading@gmail.com">chaomintrading@gmail.com</a></li>
+    </ul>
+</section>
