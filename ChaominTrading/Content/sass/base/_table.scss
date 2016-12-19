@@ -184,22 +184,22 @@ td {
     }
 
     // 表格變形
-    .rwd-table {
-        @extend .full;
+    // .rwd-table {
+    //     @extend .full;
 
-        @include mq-max(break(desktop,-1)) {
+    //     @include mq-max(break(desktop,-1)) {
 
-            tr, td { display: block; border: none; }
-            tr { position: relative; }
-            th { display: none; }
-            td {
-                text-align: left;
+    //         tr, td { display: block; border: none; }
+    //         tr { position: relative; }
+    //         th { display: none; }
+    //         td {
+    //             text-align: left;
 
-                &::before {
-                    content: attr(data-th)": "; // who knew you could do this? The internet, that's who.
-                    font-weight: bold;
-                }
-            }
-        }
-    }
+    //             &::before {
+    //                 content: attr(data-th)": "; // who knew you could do this? The internet, that's who.
+    //                 font-weight: bold;
+    //             }
+    //         }
+    //     }
+    // }
 }

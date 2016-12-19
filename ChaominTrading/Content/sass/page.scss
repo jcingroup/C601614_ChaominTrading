@@ -64,6 +64,15 @@ $form-element-bg:      #fff;
         border-top: 3px solid #fff;
     }
 
+    @include mq-max(tablet) {
+        margin-top: 20px;
+        margin-bottom: 58px;
+    }
+    @include mq-max(break(phone-plus,-1)) {
+        letter-spacing: 1px;
+        line-height: 1.2;
+    }
+
     span {
         background: url(#{$img-path}/icon-title.gif) 0 0 no-repeat;
         padding-left: 17px;
@@ -86,6 +95,12 @@ $form-element-bg:      #fff;
     @include el(before) {
         @include absolute(right 0 left 310px bottom 7px);
         border-top: 1px solid #BBDB83;
+    }
+
+    @include mq-max(break(phone,-1)) {
+        letter-spacing: 2px;
+        font-size: em(37);
+        &::before { display: none; }
     }
 }
 
@@ -191,14 +206,32 @@ $form-element-bg:      #fff;
     }
 }
 
-// 產品內容
+// 產品內頁
 .product-info {
     @extend .text-left, .p-r-32, .m-b-32;
-}
-.product-pic img {
-    width: 100%;
-}
 
+    @include mq-max(tablet) {
+        width: 60%;
+    }
+    @include mq-max(phone-plus) {
+        width: 100%;
+        padding-right: 0;
+    }
+}
+.product-pic {
+    @include mq-max(tablet) {
+        width: 40%;
+    }
+    @include mq-max(phone-plus) {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+// 產品編輯器
 .editor {
     @extend .text-left, .font-md;
 
@@ -212,15 +245,49 @@ $form-element-bg:      #fff;
         font-weight: bold;
         border-radius: 3px;
     }
-    dl { @extend .text-secondary, %clearfix, .m-b-4; }
+    dl {
+        @extend .text-secondary, %clearfix, .m-b-4;
+
+        @include mq-max(phone) {
+            padding-bottom: 4px;
+            border-bottom: 1px dashed #ddd;
+        }
+    }
     dt {
         @extend %float-l;
         width: 98px;
+
+        @include mq-max(phone) {
+            float: none;
+            width: 100%;
+        }
     }
-    dd { overflow: hidden; }
+    dd {
+        overflow: hidden;
+
+        @include mq-max(phone) {
+            margin-bottom: 0;
+        }
+    }
 }
 
-// 最新消息
+// == 關於我們
+.AboutUs {
+    article {
+        img {
+            @include mq-max(tablet) {
+                float: none;
+                margin: auto;
+            }
+        }
+    }
+    ul {
+        text-indent: -12px;
+        margin-left: 12px;
+    }
+}
+
+// == 最新消息
 .panel {
     @extend .text-left, .p-a-12, .m-b-24;
     border: 1px solid lighten($brand-secondary,50);
@@ -244,7 +311,7 @@ $form-element-bg:      #fff;
     }
 }
 
-// 聯絡我們
+// == 聯絡我們
 iframe {
     @include size(100%);
 }
@@ -255,6 +322,10 @@ iframe {
 }
 .contact-form, .contact-list {
     @extend .text-left, .m-t-48;
+
+    @include mq-max(break(tablet,-1)) {
+        padding: 0;
+    }
 }
 .contact-form {
     .form-element { @extend .m-b-4; }
@@ -263,7 +334,14 @@ iframe {
     @extend %list-unstyled;
     // border-top: 1px dashed $brand-primary;
 
-    span { @extend .m-r-12; }
+    span {
+        @extend .m-r-12;
+
+        @include mq-max(break(phone,-1)) {
+            // width: 60px;
+            display: inline-block;
+        }
+    }
 
     li {
         @extend .p-y-8;

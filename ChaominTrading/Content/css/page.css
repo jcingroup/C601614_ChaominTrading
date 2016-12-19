@@ -377,7 +377,7 @@ legend {
 body:not(:-moz-handler-blocked) fieldset {
   display: table-cell; }
 
-, [type="search"] {
+[type="search"] {
   box-sizing: inherit;
   -webkit-appearance: none; }
 
@@ -410,7 +410,7 @@ input:not([type]), [type="text"], [type="password"], [type="date"], [type="datet
   input:not([type]):disabled, [type="text"]:disabled, [type="password"]:disabled, [type="date"]:disabled, [type="datetime"]:disabled, [type="datetime-local"]:disabled, [type="month"]:disabled, [type="week"]:disabled, [type="email"]:disabled, [type="number"]:disabled, [type="search"]:disabled, [type="tel"]:disabled, [type="time"]:disabled, [type="url"]:disabled, [type="color"]:disabled, textarea:disabled, select:disabled, .form-element:disabled {
     cursor: not-allowed; }
 
-, [type="number"] {
+[type="number"] {
   width: 80px; }
 
 .form-element {
@@ -504,20 +504,6 @@ td {
         .table-rwd table th, .table-rwd table td {
           white-space: nowrap; } }
 
-@media (max-width: 61.1875em) {
-  .rwd-table tr, .rwd-table td {
-    display: block;
-    border: none; }
-  .rwd-table tr {
-    position: relative; }
-  .rwd-table th {
-    display: none; }
-  .rwd-table td {
-    text-align: left; }
-    .rwd-table td::before {
-      content: attr(data-th) ": ";
-      font-weight: bold; } }
-
 .logo, .foot-contact, .foot-nav, .float-l, .editor dt {
   float: left; }
 
@@ -529,7 +515,7 @@ td {
   display: table;
   clear: both; }
 
-.full, .table-rwd table, .rwd-table {
+.full, .table-rwd table {
   width: 100%;
   max-width: 100%; }
 
@@ -566,11 +552,11 @@ td {
   @media (min-width: 87.5em) {
     .wrap, #main {
       margin: 0 auto; } }
-  @media (max-width: 48em) {
+  @media (max-width: 61.1875em) {
     .wrap, #main {
       margin: 0; } }
 
-@media (max-width: 48em) {
+@media (max-width: 61.1875em) {
   .wrap, #footer, #main {
     padding-left: 16px;
     padding-right: 16px; } }
@@ -1647,6 +1633,14 @@ figure {
     bottom: -20px;
     width: 75px;
     border-top: 3px solid #fff; }
+  @media (max-width: 48em) {
+    .title {
+      margin-top: 20px;
+      margin-bottom: 58px; } }
+  @media (max-width: 39.9375em) {
+    .title {
+      letter-spacing: 1px;
+      line-height: 1.2; } }
   .title span {
     background: url(../images/icon-title.gif) 0 0 no-repeat;
     padding-left: 17px;
@@ -1663,6 +1657,12 @@ figure {
     bottom: 7px;
     left: 310px;
     border-top: 1px solid #BBDB83; }
+  @media (max-width: 29.9375em) {
+    .title-sort {
+      letter-spacing: 2px;
+      font-size: 2.3125em; }
+      .title-sort::before {
+        display: none; } }
 
 .fullPic-list {
   width: 32%;
@@ -1762,6 +1762,24 @@ figure {
   .fullPic-list:hover figcaption {
     background-color: rgba(146, 158, 95, 0.9); }
 
+@media (max-width: 48em) {
+  .product-info {
+    width: 60%; } }
+
+@media (max-width: 40em) {
+  .product-info {
+    width: 100%;
+    padding-right: 0; } }
+
+@media (max-width: 48em) {
+  .product-pic {
+    width: 40%; } }
+
+@media (max-width: 40em) {
+  .product-pic {
+    width: 100%;
+    padding-left: 0; } }
+
 .product-pic img {
   width: 100%; }
 
@@ -1773,11 +1791,32 @@ figure {
   font-weight: bold;
   border-radius: 3px; }
 
+@media (max-width: 30em) {
+  .editor dl {
+    padding-bottom: 4px;
+    border-bottom: 1px dashed #ddd; } }
+
 .editor dt {
   width: 98px; }
+  @media (max-width: 30em) {
+    .editor dt {
+      float: none;
+      width: 100%; } }
 
 .editor dd {
   overflow: hidden; }
+  @media (max-width: 30em) {
+    .editor dd {
+      margin-bottom: 0; } }
+
+@media (max-width: 48em) {
+  .AboutUs article img {
+    float: none;
+    margin: auto; } }
+
+.AboutUs ul {
+  text-indent: -12px;
+  margin-left: 12px; }
 
 .panel {
   border: 1px solid #d7cfd2;
@@ -1797,6 +1836,14 @@ iframe {
   height: 350px;
   border-radius: 5px;
   box-shadow: 0 0 7px rgba(92, 75, 81, 0.3); }
+
+@media (max-width: 47.9375em) {
+  .contact-form, .contact-list {
+    padding: 0; } }
+
+@media (max-width: 29.9375em) {
+  .contact-list span {
+    display: inline-block; } }
 
 .contact-list li {
   border-bottom: 1px dashed #96BD0F; }

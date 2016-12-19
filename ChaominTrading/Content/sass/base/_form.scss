@@ -70,15 +70,17 @@ $checkbox-radius:           $form-element-radius !default;
 
     @each $type in $types {
         @if $type == textarea or $type == select {
-            $return: $return, unquote('#{$type}');
+            // $return: $return, unquote('#{$type}'); // scout-app 不支援
+            $return: append($return, unquote('#{$type}'), comma);
 
             @if $selector != input {
-                $return: unquote('#{$return}#{$selector}')
+                $return: unquote('#{$return}#{$selector}');
             }
         }
         @else {
             // $return: $return, unquote('#{$selector}[type="#{$type}"]');
-            $return: $return, unquote('[type="#{$type}"]');
+            // $return: $return, unquote('[type="#{$type}"]'); // scout-app 不支援
+            $return: append($return, unquote('[type="#{$type}"]'), comma);
         }
     }
     @return $return;

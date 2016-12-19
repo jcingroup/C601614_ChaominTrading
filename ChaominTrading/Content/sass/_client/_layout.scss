@@ -10,7 +10,7 @@
     @if $enable-RWD {
         margin: 0 $gutter*3;
         @include mq(wider) { margin: 0 auto; }
-        @include mq-max(tablet) { margin: 0; }
+        @include mq-max(break(desktop,-1)) { margin: 0; }
     }
     @else {
         margin: 0 auto;
@@ -25,7 +25,7 @@
     @extend %clearfix;
 
     @if $enable-RWD {
-        @include mq-max(tablet) {
+        @include mq-max(break(desktop,-1)) {
             padding-left: $gutter;
             padding-right: $gutter;
         }
