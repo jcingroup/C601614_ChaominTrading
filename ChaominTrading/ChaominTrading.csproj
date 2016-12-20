@@ -262,6 +262,7 @@
     <Content Include="Content\images\index\site2_slogan.gif" />
     <Content Include="Content\images\logo.gif" />
     <Content Include="Content\images\logoA_s.gif" />
+    <Content Include="Content\images\logo_en.gif" />
     <Content Include="Content\images\logo_s.gif" />
     <Content Include="Content\images\product-list.jpg" />
     <Content Include="Content\images\Products\pic-i1.jpg" />
@@ -358,6 +359,7 @@
     <Content Include="Content\sass\_client\_color.scss" />
     <Content Include="Content\sass\_client\_layout.scss" />
     <Content Include="Content\sass\_client\_settings.scss" />
+    <Content Include="Content\images\index\bg.webm" />
     <None Include="Properties\PublishProfiles\Server Web Site.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap\collapse.js" />

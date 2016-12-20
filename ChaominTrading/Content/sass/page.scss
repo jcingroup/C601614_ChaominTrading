@@ -81,7 +81,9 @@ $form-element-bg:      #fff;
 
     [lang="en"] & {
         @extend .font-sp;
-        text-transform: uppercase
+        text-transform: uppercase;
+
+        span { padding-left: 22px; }
     }
 }
 
@@ -217,6 +219,8 @@ $form-element-bg:      #fff;
         width: 100%;
         padding-right: 0;
     }
+
+    p:first-child { @extend .m-b-24; }
 }
 .product-pic {
     @include mq-max(tablet) {
@@ -235,40 +239,43 @@ $form-element-bg:      #fff;
 .editor {
     @extend .text-left, .font-md;
 
-    th, td:first-of-type { white-space: nowrap; }
-    p:first-child { @extend .m-b-24; }
     ul, ol { @extend %list-unstyled, .text-secondary, .p-l-0; }
-    li { @extend .m-y-4; }
-    em {
-        @extend .m-r-8;
-        font-style: normal;
-        font-weight: bold;
-        border-radius: 3px;
-    }
-    dl {
-        @extend .text-secondary, %clearfix, .m-b-4;
+    strong { @extend .m-r-4; }
+    li {
+        @extend .m-b-8;
 
         @include mq-max(phone) {
-            padding-bottom: 4px;
+            padding-bottom: 8px;
             border-bottom: 1px dashed #ddd;
         }
     }
-    dt {
-        @extend %float-l;
-        width: 98px;
 
-        @include mq-max(phone) {
-            float: none;
-            width: 100%;
-        }
-    }
-    dd {
-        overflow: hidden;
+    th, td:first-of-type { white-space: nowrap; }
 
-        @include mq-max(phone) {
-            margin-bottom: 0;
-        }
-    }
+    // dl {
+    //     @extend .text-secondary, %clearfix, .m-b-4;
+
+    //     @include mq-max(phone) {
+    //         padding-bottom: 4px;
+    //         border-bottom: 1px dashed #ddd;
+    //     }
+    // }
+    // dt {
+    //     @extend %float-l;
+    //     width: 98px;
+
+    //     @include mq-max(phone) {
+    //         float: none;
+    //         width: 100%;
+    //     }
+    // }
+    // dd {
+    //     overflow: hidden;
+
+    //     @include mq-max(phone) {
+    //         margin-bottom: 0;
+    //     }
+    // }
 }
 
 // == 關於我們
@@ -280,10 +287,10 @@ $form-element-bg:      #fff;
                 margin: auto;
             }
         }
-    }
-    ul {
-        text-indent: -12px;
-        margin-left: 12px;
+        ul {
+            text-indent: -12px;
+            margin-left: 12px;
+        }
     }
 }
 
@@ -301,7 +308,7 @@ $form-element-bg:      #fff;
         &:hover, &:active { color: $brand-primary; }
 
         span {
-            @extend .font-md;
+            @extend .font-md, .m-r-4;
             color: #999;
         }
     }

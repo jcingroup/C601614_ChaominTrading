@@ -101,16 +101,23 @@
     @extend %float-l;
     margin-top: 34px;
 
+    [lang="en"] & {
+        background-image: url(#{$img-path}/logo_en.gif);
+        height: 77px;
+        margin-top: 29px;
+    }
+
     @include mq-max(break(desktop,-1)) {
-        margin-top: 28px;
+        margin-top: 28px !important;
     }
     @include mq-max(phone) {
-        margin-top: 4px;
+        margin-top: 4px !important;
     }
     @include mq-max(mobile) {
         background-size: contain;
         width: 210px;
-        margin-top: 10px;
+        height: 68px !important;
+        margin-top: 10px !important;
     }
 }
 
@@ -134,10 +141,7 @@
     @include mq-max(tablet) {
         background-position: 90% -40px;
     }
-    @include mq-max(phone-plus) {
-        background-position: 91% 80px;
-    }
-    @include mq-max(break(phone,-1)) {
+    @include mq-max(break(phone-plus,-1)) {
         background-image: none;
     }
 
@@ -162,8 +166,10 @@
 
     @include absolute(right 0 top 48px);
 
+    [lang="en"] & { top: 80px; }
+
     @include mq-max(break(phone,-1)) {
-        top: auto;
+        top: auto !important;
         bottom: 0;
     }
 
@@ -193,12 +199,14 @@
     @extend %float-l, .text-left;
 
     width: 34%;
+    padding-right: $gutter;
 
     @include mq-max(break(desktop,-1)) {
         width: 38%;
     }
     @include mq-max(tablet) {
         width: 100%;
+        padding-right: 0;
         margin-bottom: 20px;
     }
 
@@ -207,9 +215,10 @@
         font-size: em(13);
     }
     h6 {
-        @extend .m-y-12;
+        @extend .m-y-8;
         color: $footer-color;
         letter-spacing: 1px;
+        line-height: 1.45;
 
         @include mq-max(tablet) {
             margin-bottom: 8px !important;
@@ -247,6 +256,14 @@
         @include mq(break(mobile,-1),tablet) {
             display: inline-block;
             width: 30%;
+        }
+
+        [lang="en"] & {
+            font-size: em(14);
+
+            @include mq-max(break(phone,-1)) {
+                width: 100%;
+            }
         }
     }
 }

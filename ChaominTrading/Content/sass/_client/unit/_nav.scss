@@ -74,7 +74,7 @@ $current: page('&:nth-of-type');
         position: relative;
         letter-spacing: 3px;
 
-        &:not(:last-child) { @extend .m-r-48; }
+        &:not(:last-child) { margin-right: 47px; }
 
         @include el(before, $content: unicode('e90c')) {
             @include pos-center(x);
@@ -91,6 +91,14 @@ $current: page('&:nth-of-type');
             &::before {
                 opacity: 1;
                 top: 117%;
+            }
+        }
+
+        [lang="en"] & {
+            font-size: em(16);
+
+            @include mq(desktop,wider) {
+                &:not(:last-child) { margin-right: 31px; }
             }
         }
     }
@@ -143,7 +151,7 @@ $current: page('&:nth-of-type');
             border-radius: 3px;
 
             &:not(:last-child) {
-                margin-right: 0 !important;
+                margin-right: 0;
                 margin-bottom: $gutter;
             }
 

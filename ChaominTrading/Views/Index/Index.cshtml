@@ -1,21 +1,23 @@
 ﻿@{
-    ViewBag.Title = "首頁";
+    ViewBag.Title = "WELCOME";
     ViewBag.IsFirstPage = true;
     Layout = null;
 }
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="朝敏菓菜以安全蔬菜為目標，蔬果配送批發讓客戶買的安心吃的安心。堅持品質及服務熱忱，獲得許多客戶的支持及良好口碑，朝敏菓菜一直是企業眼中供應便宜、新鮮蔬果的好夥伴，蔬果配送範圍廣，蔬果配送皆以冷藏的車廂配送，以免造成蔬菜及食物的腐敗污染。">
-    <meta name="keywords" content="蔬果配送.蔬果批發.桃園蔬果配送.中壢蔬果配送.桃園蔬果批發.中壢蔬果批發">
-    <title>朝敏菓菜 | 朝敏國際貿易 :: 蔬果配送.蔬果批發.質優.新鮮.專業可靠.嚴格控管,Fresh Fruits & Vegetables</title>
+    <meta name="description" content="Chaomin Vegetables Fruits to safe vegetables as the goal, the distribution of fruits and vegetables to allow customers to buy wholesale peace of mind to buy peace of mind. The quality and service enthusiasm, access to many customer support and good reputation, North Korea has always been the eyes of the fruit and vegetable supply of cheap, fresh fruits and vegetables a good partner, a wide range of fruits and vegetables distribution, distribution of fruits and vegetables are refrigerated compartment, so as to avoid vegetables and Food Corruption Pollution.">
+    <meta name="keywords" content="Fruit and vegetable distribution. Fruit and vegetable wholesale. Taoyuan fruit and vegetable distribution. Chungli fruits and vegetables. Taoyuan wholesale fruits and vegetables.">
+    <title>Chaomin Vegetables Fruits | CHAOMIN International Trading::Fruit and vegetable distribution. Fruit and vegetable wholesale.Professional. Thoughtful. Direct from the Farm. Fresh Fruits & Vegetables</title>
     <link rel="stylesheet" href="~/Content/css/index.css">
 </head>
-<body>
-    <video id="video" class="video-full" preload="auto" poster="~/content/images/index/bg.jpg" autoplay loop playsinline>
+<body onload="PlayV()">
+    <video autoplay loop muted playsinline webkit-playsinline="true" id="video" class="video-full" preload="auto" poster="~/content/images/index/bg.jpg">
+        <source src="~/Content/images/index/bg.webm" type="video/webm">
         <source src="~/Content/images/index/bg.mp4" type="video/mp4">
     </video>
 
@@ -35,7 +37,7 @@
         <figure class="site2">
             <a href="~/Products"></a>
             <figcaption>
-                <h1>朝敏國際貿易 - 專業．用心．專營蔬菓進出品</h1>
+                <h1>CHAOMIN International Trading. Professional. Thoughtful. Direct from the Farm.</h1>
                 <h2>ISO 9001 國際品質驗證</h2>
             </figcaption>
         </figure>
@@ -44,12 +46,27 @@
     <footer class="copyright">&copy; 2013 - @DateTime.Now.Year Chaomin</footer>
 
     <script>
-        var video = document.getElementById('video');
-        video.addEventListener('touchend',function(){
+        function PlayV() {
+            var video = document.getElementById('video');
+            video.autoplay = true;
+            video.loop = true;
+            video.load();
             video.play();
-        },false);
-        video.load();
-        video.play();
+        }
+
+        video.addEventListener('touchend', videoPlay);
+        video.addEventListener('click', videoPlay);
+        video.addEventListener('canplay', videoPlayTimer);
+        video.addEventListener('pause', videoPlayTimer);
+        video.addEventListener('ended', videoPlayTimer);
+
+        function videoPlay(e) {
+            video.play();
+        }
+        function videoPlayTimer(e) {
+            var timeout;
+            timeout = setTimeout(videoPlay, 50);
+        }
     </script>
 </body>
 </html>
