@@ -57,11 +57,10 @@ $gutters: (
 // main
 // ------------------------------------------------------------
 .video-full {
-    @include fixed(right 0 bottom 0);
+    @include fixed(right 0 top 0);
     min-width: 100%; min-height: 100%;
     width: auto; height: auto;
-    z-index: -100;
-    background: url(#{$img-index}/bg.jpg) no-repeat;
+    background: url(#{$img-index}/bg.jpg) no-repeat center;
     background-size: cover;
     opacity: .8;
 }
@@ -96,11 +95,6 @@ figure {
 
     @include transition(transform .5s, box-shadow .7s);
 
-    &:hover, &:active {
-        @include transform(translate(-5px,-10px));
-        box-shadow: 10px 10px 15px rgba(0, 0, 0, .5);
-    }
-
     @include mq-max(break(desktop,-1)) {
         float: none !important;
         width: 100%;
@@ -116,6 +110,11 @@ figure {
     border: 1px solid #769F35;
     background: #fff url(#{$img-index}/site1_bg.gif) 0 0 repeat-x;
 
+    &:hover, &:active {
+        @include transform(translate(-5px,-10px));
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, .5);
+    }
+
     @include mq-max(break(wide,-1)) {
         margin-bottom: 20px;
     }
@@ -127,6 +126,7 @@ figure {
             background-image: none;
         }
     }
+    // logo
     h1 {
         background: url(#{$img-index}/site1_logo.png) 157px 0 no-repeat;
         height: 189px;
@@ -161,6 +161,7 @@ figure {
             position: static;
         }
     }
+    // 全程7℃
     h2 {
         background: url(#{$img-index}/site1_slogan.gif) center 0 no-repeat;
         height: 62px;
@@ -176,6 +177,7 @@ figure {
             height: 23px;
         }
     }
+    // 每日農藥檢驗
     h5 {
         @extend .m-t-0;
         font-size: em(18);
@@ -187,6 +189,7 @@ figure {
             display: none;
         }
     }
+    // 雙北等
     small {
         color: #E5E5E5;
         display: inline-block;
@@ -208,6 +211,7 @@ figure {
     @extend %float-r;
     border: 3px solid #F0EFE9;
     background: #fff url(#{$img-index}/site2_bg.gif) 0 bottom no-repeat;
+    cursor: default;
 
     @include mq-max(break(phone-plus,-1)) {
         background-image: url(#{$img-index}/site2_bg_s.gif);
@@ -229,31 +233,33 @@ figure {
         }
     }
 
+    // logo
     h1 {
         background: url(#{$img-index}/site2_logo.gif) center 0 no-repeat;
         width: 302px;
         height: 165px;
-        margin-top: 43px;
+        margin-top: 30px;
         margin-left: 15px;
 
         @include mq-max(break(phone-plus,-1)) {
             background-image: url(#{$img-index}/site2_logo_s.gif);
             background-size: contain;
-            height: 126px;
+            height: 124px;
             margin-left: 5px;
-            margin-top: 15px;
+            margin-top: 8px;
         }
-
         @include mq-max(500) {
             width: 80%;
+            height: 112px;
         }
         @include mq-max(mobile) {
             margin-left: 0;
-            margin-top: 10px;
+            // margin-top: 10px;
             width: 100%;
-            height: 92px;
+            height: 88px;
         }
     }
+    // iso
     h2 {
         background: url(#{$img-index}/site2_slogan.gif) center center no-repeat;
         width: 59px;
@@ -275,6 +281,33 @@ figure {
            display: none;
         }
     }
+    // 語系
+    nav {
+        @extend .text-left, .m-t-8;
+        padding-left: 20px;
+
+        @include mq-max(phone) {
+            margin-top: 5px;
+            padding-left: 15px;
+        }
+        @include mq-max(mobile) {
+            padding-left: 0;
+            text-align: center;
+        }
+    }
+    .btn {
+        display: inline-block;
+        background: $brand-primary;
+        font-size: em(17);
+        color: #fff;
+        line-height: 1.5;
+        padding: 0 7px;
+        border-radius: 3px;
+
+        &:hover, &:active {
+            background: #006834;
+        }
+    }
 }
 
 .copyright {
@@ -289,5 +322,8 @@ figure {
         top: 730px;
         bottom: auto;
         padding-bottom: 10px;
+    }
+    @include mq(break(mobile,+1), break(phone-plus,-1)) {
+        top: 540px;
     }
 }
