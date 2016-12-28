@@ -4,26 +4,31 @@
     ViewBag.BodyClass = "ContactUs";
     ViewBag.breadCrumb = "CONTCAT US";
 }
+<script src="../../Scripts/mill-e-fix.js"></script>
 
 <h1 class="title"><span>@ViewBag.breadCrumb</span></h1>
 
 <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28933.871891184073!2d121.17300366079162!3d24.97516367863908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823c33f82a1e9%3A0x9465c214f0cd66c9!2zMzIw5qGD5ZyS5biC5Lit5aOi5Y2A5Lit5q2j6LevMTQ1MS0x6Jmf!5e0!3m2!1szh-TW!2stw!4v1445316011927" frameborder="0" style="border:0" allowfullscreen></iframe></div>
 
 <section class="row row-x-0">
-    <form action="" class="contact-form col-sm-6">
+    <form action="" onSubmit="sendMail(this);" class="contact-form col-sm-6">
         <label for="name" class="form-element-label">Name</label>
-        <input id="name" type="text" class="form-element">
+        <input id="name" type="text" class="form-element" name="Name">
 
         <label for="tel" class="form-element-label">Telephone</label>
-        <input id="tel" type="text" class="form-element">
+        <input id="tel" type="text" class="form-element" name="Telephone">
 
         <label for="email" class="form-element-label">E-mail</label>
-        <input id="email" type="text" class="form-element">
+        <input id="email" type="text" class="form-element" name="E-mail">
 
         <label class="form-element-label">Content</label>
-        <textarea rows="5" class="form-element"></textarea>
+        <textarea rows="5" class="form-element" name="Content"></textarea>
 
         <button class="btn m-t-24">Submit</button>
+
+        <input type="hidden" name="accept" value="chaomintrading@gmail.com">
+        <input type="hidden" name="subject" value="CHAOMIN Inquiry letter">
+
     </form>
 
     <ul class="contact-list col-sm-6">
