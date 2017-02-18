@@ -45,7 +45,7 @@
     @keyframes #{$animationName} { @content; }
 }
 
-@mixin diy-animation($animationName, $animate) {
+@mixin diy-animate($animationName, $animate) {
     @include animation($animationName $animate);
     @include keyframes($animationName) {
         @content

@@ -15,61 +15,29 @@
     <title>Chaomin Vegetables Fruits | CHAOMIN International Trading::Fruit and vegetable distribution. Fruit and vegetable wholesale.Professional. Thoughtful. Direct from the Farm. Fresh Fruits & Vegetables</title>
     <link rel="stylesheet" href="~/Content/css/index.css">
 </head>
-<body onload="PlayV()">
-    <video autoplay loop muted playsinline webkit-playsinline="true" id="video" class="video-full" preload="auto" poster="~/content/images/index/bg.jpg">
-        <source src="~/Content/images/index/bg.webm" type="video/webm">
-        <source src="~/Content/images/index/bg.mp4" type="video/mp4">
-    </video>
+<body>
+    <section id="wrapper">
+        <header id="header">
+            <h1>朝敏菓菜</h1>
+            <h2>蔬果第一領導品牌</h2>
+            <p class="font-sp">CHAOMIN INTERNATIONAL VEGETABLES FRUITS FIRM</p>
+            <small>專業．用心．保鮮蔬菓物流進出口</small>
+        </header>
 
-    <main>
-        <figure class="site1">
-            @* <a href="http://www.chaomin.com.tw/OutWeb/L_CT/index/index.asp"></a> *@
-            <a href="http://demo.jcin.com.tw/chaomin/OutWeb/L_CT/index/index.asp"></a>
-            <figcaption>
-                <h1>朝敏果菜 - 優質．新鮮專業可靠．嚴格控管</h1>
-                <footer>
-                    <h5>每日農藥安全檢驗<small>雙北．桃園．新竹．頭份．台中．彰化．南投</small></h5>
-                    <h2>全程7℃保鮮配送物流</h2>
-                </footer>
-            </figcaption>
-        </figure>
+        <nav id="menu">
+            <a class="site1" href="http://www.chaomin.com.tw/OutWeb/L_CT/index/index.asp">
+                物流配送部
+                <small class="font-sp">Fresh Fruits & Vegetables</small>
+            </a>
+            <a class="site2" href="~/Products/SetLanguage?L=en-US&A=index">
+                國際貿易部
+                <small class="font-sp">International Trading</small>
+            </a>
+        </nav>
 
-        <figure class="site2">
-            <figcaption>
-                <h1>CHAOMIN International Trading. Professional. Thoughtful. Direct from the Farm.</h1>
-                <h2>ISO 9001 國際品質驗證</h2>
-                <nav>
-                    <a href="~/Products/SetLanguage?L=zh-TW&A=index" class="btn">中文</a>
-                    <a href="~/Products/SetLanguage?L=en-US&A=index" class="btn">English</a>
-                </nav>
-            </figcaption>
-        </figure>
-    </main>
+        <div class="copyright font-sp">&copy; 2013 - @DateTime.Now.Year CHAOMIN</div>
+    </section>
 
-    <footer class="copyright">&copy; 2013 - @DateTime.Now.Year Chaomin</footer>
-
-    <script>
-        function PlayV() {
-            var video = document.getElementById('video');
-            video.autoplay = true;
-            video.loop = true;
-            video.load();
-            video.play();
-        }
-
-        video.addEventListener('touchend', videoPlay);
-        video.addEventListener('click', videoPlay);
-        video.addEventListener('canplay', videoPlayTimer);
-        video.addEventListener('pause', videoPlayTimer);
-        video.addEventListener('ended', videoPlayTimer);
-
-        function videoPlay(e) {
-            video.play();
-        }
-        function videoPlayTimer(e) {
-            var timeout;
-            timeout = setTimeout(videoPlay, 50);
-        }
-    </script>
+    <footer></footer>
 </body>
 </html>

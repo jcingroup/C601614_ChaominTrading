@@ -59,13 +59,13 @@ $modal-min-width: 320px;
 .animate-top {
     position: relative;
 
-    @include diy-animation(slide-down, .4s) {
+    @include diy-animate(slide-down, .4s) {
         from { top: -300px; opacity: 0; }
         to   { top: 0; opacity: 1; }
     }
 }
 .animate-zoom {
-    @include diy-animation(animatezoom, .6s) {
+    @include diy-animate(animatezoom, .6s) {
         from { @include transform(scale(0)); }
         to   { @include transform(scale(1)); }
     }

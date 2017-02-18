@@ -196,7 +196,7 @@ input:not([type]), #{text-inputs(all)}, .form-element {
 }
 
 #{text-inputs(number)} {
-    @extend .m-x-auto;
+    @extend .m-x-a;
     width: $input-size-sm;
 }
 

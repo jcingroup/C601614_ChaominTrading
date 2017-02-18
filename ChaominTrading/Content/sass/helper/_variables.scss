@@ -127,11 +127,11 @@ $prefixes:                   webkit !default;
 // == RWD-break
 // ----------------------------------------------------------------------
 $mq-breakpoints: (
-    mobile:           412px,
-    phone:            480px,
-    phone-plus:       640px,
-    tablet:           768px,
-    desktop:          980px,
+    mobile:           375px,  // 380px,
+    phone:            568px,  // 480px,
+    phone-plus:       667px,  // 640px,
+    tablet:           736px,  // 768px,
+    desktop:          1024px, // 980px,
     wide:             1200px,
     wider:            1400px
 ) !default;

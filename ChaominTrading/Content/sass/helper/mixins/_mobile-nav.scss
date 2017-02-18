@@ -28,7 +28,7 @@
                 opacity: 0;
 
                 @include size(100%);
-                @include diy-animation(swing, 0.5s) {
+                @include diy-animate(swing, 0.5s) {
                     0% { @include transform(rotateY(90deg)); opacity: 0; }
                     100% { @include transform(rotateY(0)); opacity: 1; }
                 }

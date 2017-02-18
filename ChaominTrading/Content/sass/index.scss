@@ -5,31 +5,13 @@
 $enable-RWD:             true;
 $states:                 false;
 $index:                  true;
-$img-index:              '../images/index';
+$img-path:               '../images/index';
 
-$body-bg:                #769F35; // 161A0D
-$body-color:             #333;
-$font-family-sp:         false;
-$font-size-h3:           30px;
-$headings-color:         #fff;
+$body-bg:                #ad9647 url(#{$img-path}/footerBg2.gif) 24% bottom no-repeat; // 769F35
+$body-color:             #bfbcab;
+$font-family-sp:         'Lato', sans-serif;
 
-$figcaption-full:        true;
-
-$z-index: (
-    figure:             1
-);
-
-$gutter:                 16px;
-$gutters: (
-    0: (
-        x:   0,
-        y:   0
-    ),
-    8: (
-        x:   ($gutter / 2),
-        y:   ($gutter / 2)
-    )
-);
+$gutters:                null;
 
 
 
@@ -50,280 +32,282 @@ $gutters: (
 @import "base/util";
 
 // 本頁專用
-@import "_client/unit/figure";
 @import "_client/unit/classes";
 
 
 // main
 // ------------------------------------------------------------
-.video-full {
-    @include fixed(right 0 top 0);
-    min-width: 100%; min-height: 100%;
-    width: auto; height: auto;
-    background: url(#{$img-index}/bg.jpg) no-repeat center;
-    background-size: cover;
-    opacity: .8;
-}
+#wrapper {
+    background: url(#{$img-path}/bg.gif) 0 0 repeat;
+    padding-top: 100px;
+    position: relative;
+    min-height: 100%;
 
-main {
-    @extend %clearfix;
+    @include el(all) {
+        @include absolute(left 50%);
+        background-position: 0 0;
+        background-repeat: no-repeat;
+    }
+    &::before {
+        background-image: url(#{$img-path}/leaf.gif);
+        width: 211px; height: 266px;
+        margin-left: 180px;
+        top: 278px;
 
-    width: 85%;
-    max-width: 1122px;
-    @include pos-center;
+        opacity: 0;
+        opacity: 1\9;
 
+        @include diy-animate(slide-right, 1s linear 1s forwards) {
+            100% {
+                opacity: 1;
+                margin-left: 192px;
+            }
+        }
+    }
+    &::after {
+        background-image: url(#{$img-path}/tomato.gif);
+        width: 39px; height: 47px;
+        margin-left: 350px;
+        top: 425px;
+        z-index: 0;
+
+        opacity: 0;
+        @include transform(scale(0));
+        @include prefix(transform-origin, 20px 0, ms);
+
+        @include diy-animate(fade-in, .7s linear 2s forwards) {
+            100% {
+                opacity: 1;
+                @include transform(scale(1));
+            }
+        }
+
+        opacity: 1\9;
+        -ms-transform: scale(1)\9;
+    }
+
+    @include mq(desktop, $and: '(max-height: 50em)') {
+        padding-top: 70px;
+    }
     @include mq-max(break(desktop,-1)) {
-        position: static;
-        margin: auto;
-        padding-top: 50px;
+        min-height: 46.75em;
+        // padding-bottom: 150px;
 
-        @include transform(translate(0,0));
-    }
-    @include mq-max(break(tablet,-1)) {
-        width: 72%;
-    }
-}
-
-h1, h2 { @extend %text-hide, .m-b-0; }
-
-figure {
-    @extend .m-a-0;
-    width: 48%;
-    max-width: 530px;
-    height: 310px;
-    border-radius: 4px;
-
-    @include transition(transform .5s, box-shadow .7s);
-
-    @include mq-max(break(desktop,-1)) {
-        float: none !important;
-        width: 100%;
-    }
-    @include mq-max(break(phone-plus,-1)) {
-        height: auto;
-    }
-}
-
-// 朝敏菓菜
-.site1 {
-    @extend %float-l;
-    border: 1px solid #769F35;
-    background: #fff url(#{$img-index}/site1_bg.gif) 0 0 repeat-x;
-
-    &:hover, &:active {
-        @include transform(translate(-5px,-10px));
-        box-shadow: 10px 10px 15px rgba(0, 0, 0, .5);
-    }
-
-    @include mq-max(break(wide,-1)) {
-        margin-bottom: 20px;
-    }
-
-    figcaption {
-        background: url(#{$img-index}/site1_bg2.gif) 15px 72px no-repeat;
-
-        @include mq-max(break(tablet,-1)) {
-            background-image: none;
-        }
-    }
-    // logo
-    h1 {
-        background: url(#{$img-index}/site1_logo.png) 157px 0 no-repeat;
-        height: 189px;
-        margin-top: 16px;
-
-        @include mq(desktop,break(wider,-1)) {
-            background-position: right 0;
-            margin-top: 14px;
-        }
-
-        @include mq-max(break(tablet,-1)) {
-            background-position: center 0;
-            background-size: contain;
-            height: 150px;
-        }
-
-        @include mq-max(break(phone-plus,-1)) {
-            background-image: url(#{$img-index}/site1_logo_s.png);
-            margin-top: 0;
-        }
-
-        @include mq-max(mobile) {
-            height: 110px;
-        }
-    }
-    footer {
-        @extend .text-white, .p-y-8;
-        @include absolute(bottom 0 left 0 right 0);
-        background: #769F35;
-
-        @include mq-max(break(phone-plus,-1)) {
-            position: static;
-        }
-    }
-    // 全程7℃
-    h2 {
-        background: url(#{$img-index}/site1_slogan.gif) center 0 no-repeat;
-        height: 62px;
-
-        @include mq-max(break(wider,-1)) {
-            background-size: contain;
-            width: 100%;
-        }
-        @include mq-max(break(phone-plus,-1)) {
-            height: 38px;
-        }
-        @include mq-max(mobile) {
-            height: 23px;
-        }
-    }
-    // 每日農藥檢驗
-    h5 {
-        @extend .m-t-0;
-        font-size: em(18);
-        font-weight: bold;
-        letter-spacing: 1px;
-        margin-bottom: 5px;
-
-        @include mq-max(break(phone-plus,-1)) {
-            display: none;
-        }
-    }
-    // 雙北等
-    small {
-        color: #E5E5E5;
-        display: inline-block;
-
-        @include mq(tablet) {
-            border-left: 1px solid #E5E5E5;
-            padding-left: 16px;
-            margin-left: 16px;
-        }
-        @include mq-max(break(tablet,-1)) {
-            display: block;
-            margin-top: 5px;
-        }
-    }
-}
-
-// 朝敏貿易
-.site2 {
-    @extend %float-r;
-    border: 3px solid #F0EFE9;
-    background: #fff url(#{$img-index}/site2_bg.gif) 0 bottom no-repeat;
-    cursor: default;
-
-    @include mq-max(break(phone-plus,-1)) {
-        background-image: url(#{$img-index}/site2_bg_s.gif);
-        background-position: right 0;
+        &::before, &::after { left: auto; }
+        &::before { right: 0; }
+        &::after { right: 10px; }
     }
     @include mq-max(phone) {
-        background-image: none;
+        min-height: 100%;
+        padding-top: 13vh;
+
+        &::before, &::after { top: auto; }
+        &::before { bottom: 0; }
+        &::after { bottom: 72px; }
     }
-
-    figcaption {
-        background: url(#{$img-index}/site2_bg2.gif) 25px bottom no-repeat;
-        height: 100%;
-        overflow: hidden;
-        padding-bottom: 55px;
-
-        @include mq-max(mobile) {
-            background-size: 50%;
-            padding-bottom: 40px;
-        }
+    @include mq-max(mobile) {
+        padding-top: 30px;
+        &::before, &::after { display: none; }
     }
+}
 
-    // logo
-    h1 {
-        background: url(#{$img-index}/site2_logo.gif) center 0 no-repeat;
-        width: 302px;
-        height: 165px;
-        margin-top: 30px;
-        margin-left: 15px;
+// == header
+#header {
+    @extend .m-x-a;
+    position: relative;
+    padding-top: 69px;
+    max-width: 800px;
 
-        @include mq-max(break(phone-plus,-1)) {
-            background-image: url(#{$img-index}/site2_logo_s.gif);
-            background-size: contain;
-            height: 124px;
-            margin-left: 5px;
-            margin-top: 8px;
+    // 領導品牌的2條線
+    @include el(all) {
+        @include absolute(top 56px);
+        width: (800px - 180)/2;
+        border-top: 1px solid #bbdb83;
+
+        @include mq-max(break(desktop,-1)) {
+            width: 36%;
         }
-        @include mq-max(500) {
-            width: 80%;
-            height: 112px;
+        @include mq-max(phone) {
+            width: 30%;
         }
         @include mq-max(mobile) {
-            margin-left: 0;
-            // margin-top: 10px;
-            width: 100%;
-            height: 88px;
+            top: 48px;
+            width: 24%;
         }
     }
-    // iso
-    h2 {
-        background: url(#{$img-index}/site2_slogan.gif) center center no-repeat;
-        width: 59px;
-        height: 106px;
-        @include absolute(top 11px right 21px);
+    &::after { right: 0; }
 
-        @include mq-max(break(phone-plus,-1)) {
-            background-size: contain;
-            top: auto;
-            bottom: 5px;
-            right: 10px;
-        }
+    @include mq-max(break(desktop,-1)) {
+        width: 85%;
+    }
+    @include mq-max(mobile) {
+        padding-top: 52px;
+    }
 
-        @include mq-max(550) {
-            height: 80px;
-            right: 5px;
-        }
+    p, small { letter-spacing: 3px; }
+    p {
+        color: #96bd0f;
+        margin-top: 0;
+
         @include mq-max(mobile) {
-           display: none;
+            letter-spacing: 1;
+            font-size: em(14);
         }
     }
-    // 語系
-    nav {
-        @extend .text-left, .m-t-8;
-        padding-left: 20px;
+    small {
+        display: block;
+        font-size: em(14);
+    }
+}
+h1 {
+    border-bottom: 1px solid #bbdb83;
+    margin-bottom: 8px;
+
+    @include text-pic('logo.gif', $height:91px, $seat: center 0);
+
+    @include mq-max(mobile) {
+        background-size: contain;
+        height: 66px;
+    }
+}
+h2 {
+    top: 0;
+
+    @include text-pic('logo2.gif', 175px, 65px, center 0);
+    @include pos-center(x);
+
+    @include mq-max(mobile) {
+        background-size: contain;
+        height: 55px;
+    }
+}
+
+#menu {
+    @extend .m-x-a;
+    background: #fff url(#{$img-path}/siteBg.gif) center 64px no-repeat;
+    border: 1px solid #ede2dc;
+    border-top: none;
+    width: 71.5%;
+    max-width: 572px;
+    margin-top: 45px;
+    margin-bottom: 23px;
+    position: relative;
+    z-index: 2;
+
+    @include mq-max(phone) {
+        width: 85%;
+    }
+    @include mq-max(mobile) {
+        margin-top: 28px;
+        background-position: center 38px;
+    }
+
+    a {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+        margin: 0 -2px;
+        padding: 65px 8px 55px 8px;
+        background-position: 0 0;
+        background-repeat: repeat-x;
+        color: #2d3d14;
+        font-size: em(26);
+        line-height: 1.25;
+        letter-spacing: 1px;
+
+        &:hover {
+            color: #fff;
+
+            small { color: darken(#fcfbf7,5); }
+        }
+
+        @include mq-max(mobile) {
+            font-size: em(19);
+            padding-top: 42px;
+            padding-bottom: 20px;
+        }
+    }
+    .site1 {
+        background-image: url(#{$img-path}/site1_bg.png);
+        &:hover { background-color: #F0B726; }
+    }
+    .site2 {
+        background-image: url(#{$img-path}/site2_bg.png);
+        &:hover { background-color: #B9C85D; }
+    }
+
+    small {
+        display: block;
+        color: #d0bea6;
+        font-size: em(15,26);
+        line-height: 1.15;
+        margin-top: 5px;
 
         @include mq-max(phone) {
-            margin-top: 5px;
-            padding-left: 15px;
-        }
-        @include mq-max(mobile) {
-            padding-left: 0;
-            text-align: center;
-        }
-    }
-    .btn {
-        display: inline-block;
-        background: $brand-primary;
-        font-size: em(17);
-        color: #fff;
-        line-height: 1.5;
-        padding: 0 7px;
-        border-radius: 3px;
-
-        &:hover, &:active {
-            background: #006834;
+            font-size: rem(12);
         }
     }
 }
 
 .copyright {
-    font-size: em(13);
-    color: #fff;
-    letter-spacing: 2px;
-    width: 100%;
+    font-size: em(11);
+    letter-spacing: 1px;
+}
 
-    @include absolute(bottom 8%);
+footer {
+    background: url(#{$img-path}/footer_salad.gif) center 26px no-repeat,
+                url(#{$img-path}/footerBg.gif) center 0 repeat-x,
+                #ad9647 url(#{$img-path}/footerBg2.gif) 24% bottom no-repeat;
+    position: relative;
+    // min-height: 30px;
 
-    @include mq(phone-plus,break(desktop,-1)) {
-        top: 730px;
-        bottom: auto;
-        padding-bottom: 10px;
+    @include el(after) {
+        background: url(#{$img-path}/footer_green.gif) 0 0 no-repeat;
+        width: 309px;
+        height: 48px;
+        margin-left: -440px;
+
+        @include absolute(left 50% top -47px);
+
+        opacity: 0;
+        @include transform(scaleY(0));
+        @include prefix(transform-origin, 0 bottom);
+
+        @include diy-animate(growUp, 1s linear 2.5s forwards) {
+            100% {
+                opacity: 1;
+                @include transform(scaleY(1));
+            }
+        }
+
+        opacity: 1\9;
+        -ms-transform: scaleY(1)\9;
+
+        @include mq-max(break(desktop,-1)) {
+            margin-left: 0;
+            left: 15px;
+        }
+        @include mq-max(break(phone,-1)) {
+            background-size: contain;
+            width: 200px;
+            height: 30px;
+            top: -29px;
+        }
     }
-    @include mq(break(mobile,+1), break(phone-plus,-1)) {
-        top: 540px;
+
+    @include mq(desktop, $and: '(min-height: 50.0625em)') {
+        height: 218px;
+        margin-top: -218px;
+    }
+    @include mq(desktop, 1366px, $and: '(max-height: 48em)') {
+        height: 80px;
+        margin-top: -80px;
+    }
+    @include mq(break(mobile, +1), break(desktop,-1)) {
+        min-height: calc(100% - 46.75em);
+    }
+    @include mq-max(mobile) {
+        height: 16px;
+        margin-top: -16px;
     }
 }
