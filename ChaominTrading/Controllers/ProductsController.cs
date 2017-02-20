@@ -38,6 +38,10 @@ namespace ChaominTrading.Controllers
         {
             return View();
         }
+        public ActionResult Import4()
+        {
+            return View();
+        }
         // 出口
         public ActionResult Export_list()
         {

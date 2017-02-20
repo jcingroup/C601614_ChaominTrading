@@ -251,8 +251,6 @@ input:not([type]), #{text-inputs(all)}, .form-element {
     @include mq-max(phone) { display:block; margin-left:0; }
 }
 
-
-
 // 必填樣式
 [required] {
     @each $attribute, $value in $input-required-styles {

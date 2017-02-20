@@ -907,7 +907,8 @@ td {
 .breadcrumb {
   font-size: 18px;
   color: #B9C85D;
-  line-height: 1.01; }
+  line-height: 1.01;
+  letter-spacing: 1px; }
   .breadcrumb li {
     vertical-align: middle; }
     .breadcrumb li:not(:last-child) {
@@ -1221,7 +1222,7 @@ figure {
 .m-r-24 {
   margin-right: 24px; }
 
-.m-b-24, .product-info p:first-child, .panel, .panel:not(:last-child) {
+.m-b-24, .product-info p:last-of-type, .panel, .panel:not(:last-child) {
   margin-bottom: 24px; }
 
 .m-l-24 {

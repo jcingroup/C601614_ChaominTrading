@@ -220,7 +220,7 @@ $form-element-bg:      #fff;
         padding-right: 0;
     }
 
-    p:first-child { @extend .m-b-24; }
+    p:last-of-type { @extend .m-b-24; }
 }
 .product-pic {
     @include mq-max(tablet) {

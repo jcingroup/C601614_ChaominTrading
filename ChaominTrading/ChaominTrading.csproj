@@ -268,6 +268,7 @@
     <Content Include="Content\images\Products\pic-i1.jpg" />
     <Content Include="Content\images\Products\pic-i2.jpg" />
     <Content Include="Content\images\Products\pic-i3.jpg" />
+    <Content Include="Content\images\Products\pic-i4.jpg" />
     <Content Include="Content\images\Products\pic1.jpg" />
     <Content Include="Content\images\Products\pic2.jpg" />
     <Content Include="Content\images\Products\pic3.jpg" />
@@ -429,6 +430,8 @@
     <Content Include="Views\Products\Import3.zh-TW.cshtml" />
     <Content Include="Views\Products\Import_list.zh-TW.cshtml" />
     <Content Include="Views\Products\list.zh-TW.cshtml" />
+    <Content Include="Views\Products\Import4.cshtml" />
+    <Content Include="Views\Products\Import4.zh-TW.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
