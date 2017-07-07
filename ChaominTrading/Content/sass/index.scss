@@ -311,3 +311,33 @@ footer {
         margin-top: -16px;
     }
 }
+
+// 2017世大運合格供應商
+.pic-2017su {
+    @include text-pic('2017SU.gif', 101px, 102px);
+    position: absolute;
+
+    @include mq(phone) {
+        left: 50%;
+        top: 125px;
+        margin-left: 148px;
+    }
+    @include mq-max(break(phone,-1)) {
+        top: 2%;
+        right: 2%;
+    }
+    @include mq-max(mobile) {
+        background-size: contain;
+        width: 76px;
+        height: 76px;
+    }
+
+    @include diy-animate(slide, 5s linear 2s infinite) {
+        80% {
+            @include transform(rotateY(0));
+        }
+        100% {
+            @include transform(rotateY(360deg));
+        }
+    }
+}

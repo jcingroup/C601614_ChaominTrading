@@ -174,19 +174,14 @@ html {
 
 @-moz-viewport {
   width: device-width; }
-
 @-ms-viewport {
   width: device-width; }
-
 @-o-viewport {
   width: device-width; }
-
 @-webkit-viewport {
   width: device-width; }
-
 @viewport {
   width: device-width; }
-
 body {
   font-family: \5FAE\8EDF\6B63\9ED1\9AD4, "微軟正黑體", "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -310,7 +305,7 @@ textarea {
   width: 100%;
   max-width: 100%; }
 
-.text-hide, h1, h2 {
+.text-hide, h1, h2, .pic-2017su {
   font: 0/0 a;
   color: transparent;
   text-shadow: none;
@@ -891,12 +886,10 @@ textarea {
     opacity: 1\9;
     -webkit-animation: slide-right 1s linear 1s forwards;
     animation: slide-right 1s linear 1s forwards; }
-
 @-webkit-keyframes slide-right {
   100% {
     opacity: 1;
     margin-left: 192px; } }
-
 @keyframes slide-right {
   100% {
     opacity: 1;
@@ -918,14 +911,12 @@ textarea {
     animation: fade-in 0.7s linear 2s forwards;
     opacity: 1\9;
     -ms-transform: scale(1) \9; }
-
 @-webkit-keyframes fade-in {
   100% {
     opacity: 1;
     -ms-transform: scale(1);
     -webkit-transform: scale(1);
     transform: scale(1); } }
-
 @keyframes fade-in {
   100% {
     opacity: 1;
@@ -1106,14 +1097,12 @@ footer {
     animation: growUp 1s linear 2.5s forwards;
     opacity: 1\9;
     -ms-transform: scaleY(1) \9; }
-
 @-webkit-keyframes growUp {
   100% {
     opacity: 1;
     -ms-transform: scaleY(1);
     -webkit-transform: scaleY(1);
     transform: scaleY(1); } }
-
 @keyframes growUp {
   100% {
     opacity: 1;
@@ -1145,3 +1134,43 @@ footer {
     footer {
       height: 16px;
       margin-top: -16px; } }
+
+.pic-2017su {
+  background: url(../images/index/2017SU.gif) 0 0 no-repeat;
+  width: 101px;
+  height: 102px;
+  position: absolute;
+  -webkit-animation: slide 5s linear 2s infinite;
+  animation: slide 5s linear 2s infinite; }
+  @media (min-width: 35.5em) {
+    .pic-2017su {
+      left: 50%;
+      top: 125px;
+      margin-left: 148px; } }
+  @media (max-width: 35.4375em) {
+    .pic-2017su {
+      top: 2%;
+      right: 2%; } }
+  @media (max-width: 23.4375em) {
+    .pic-2017su {
+      background-size: contain;
+      width: 76px;
+      height: 76px; } }
+@-webkit-keyframes slide {
+  80% {
+    -ms-transform: rotateY(0);
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0); }
+  100% {
+    -ms-transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg); } }
+@keyframes slide {
+  80% {
+    -ms-transform: rotateY(0);
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0); }
+  100% {
+    -ms-transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg); } }
